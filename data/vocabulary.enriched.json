@@ -2383,7 +2383,7 @@
   ],
   "enrichment": {
     "generated_from": "data/G6_vocabulary_p1-p2.original.json",
-    "current_frontend_source": "app/js/vocabulary.js",
+    "current_frontend_source": "js/vocabulary.js",
     "generated_at": "2026-07-02T06:02:17.628Z",
     "note": "原始欄位保留不改；補充欄位用於前端練習卡與未來重新生成 vocabulary.js。",
     "extra_fields": [

@@ -10,12 +10,6 @@
 index.html
 ```
 
-在目前本機的完整路徑是：
-
-```text
-D:/GitHub/english-vocabulary-practice/index.html
-```
-
 第一版設計成可以用 `file://` 直接開啟，因此目前不需要啟動 dev server。
 
 ## 目前功能
@@ -46,16 +40,12 @@ js/
 data/
   G6_vocabulary_p1-p2.original.json
   vocabulary.enriched.json
+scripts/
+  generate-vocabulary-js.js
 README.md
 ```
 
 ## 資料來源
-
-外部原始來源：
-
-```text
-D:/FnOS_Sync/03_English/Vocabulary/G6 Voc/00.原始檔案及導出/G6_vocabulary_p1-p2.json
-```
 
 專案內保留的原始複本：
 
@@ -80,9 +70,16 @@ data/G6_vocabulary_p1-p2.original.json
 
 - `data/G6_vocabulary_p1-p2.original.json`: 原始資料複本，不手動改單字、詞性、中文意思。
 - `data/vocabulary.enriched.json`: 可維護的補充資料來源，包含英文解釋、例句、片語、自然發音拆字。
+- `scripts/generate-vocabulary-js.js`: 從 enriched JSON 驗證並產生前端資料檔。
 - `js/vocabulary.js`: 目前前端實際讀取的資料檔，透過 `window.VOCABULARY_DATA` 提供資料。
 
-目前因為第一版要支援直接用 `file://` 開啟，所以前端讀 `app/js/vocabulary.js`，而不是直接 `fetch()` JSON。之後若部署到 GitHub Pages，可以再整理成更正式的產生流程。
+目前因為第一版要支援直接用 `file://` 開啟，所以前端讀 `js/vocabulary.js`，而不是直接 `fetch()` JSON。維護資料時先修改 `data/vocabulary.enriched.json`，再執行：
+
+```powershell
+node scripts/generate-vocabulary-js.js
+```
+
+腳本會檢查總筆數、分類筆數、必填補充欄位、重複單字，以及例句是否至少 7 個英文單字；通過後才重新產生 `js/vocabulary.js`。
 
 ## 資料品質規則
 
@@ -105,15 +102,22 @@ data/G6_vocabulary_p1-p2.original.json
 
 - 例句至少 7 個英文單字。
 - 原始欄位與 `data/G6_vocabulary_p1-p2.original.json` 一致。
-- `app/js/vocabulary.js` 可以正常載入 230 筆資料。
+- `js/vocabulary.js` 可以正常載入 230 筆資料。
 
 ## 驗證指令
 
 語法檢查：
 
 ```powershell
+node --check scripts/generate-vocabulary-js.js
 node --check js/app.js
 node --check js/vocabulary.js
+```
+
+重新產生前端字庫：
+
+```powershell
+node scripts/generate-vocabulary-js.js
 ```
 
 檢查資料筆數與補充欄位：
@@ -122,6 +126,39 @@ node --check js/vocabulary.js
 node -e "const fs=require('fs'); const vm=require('vm'); const js=fs.readFileSync('js/vocabulary.js','utf8'); const sandbox={window:{}}; vm.runInNewContext(js,sandbox); const rows=sandbox.window.VOCABULARY_DATA; const missing=rows.filter(e=>!e.englishDefinition||!e.exampleSentence||!e.phrase||!e.phonicsHint); const short=rows.filter(e=>e.exampleSentence.split(/[^A-Za-z']+/).filter(Boolean).length<7); console.log({total:rows.length, missing:missing.length, shortExamples:short.length});"
 ```
 
+## GitHub Pages 部署
+
+目前公開頁面：
+
+```text
+https://jamesyyl.github.io/english-vocabulary-practice/
+```
+
+部署來源是 GitHub repo 的 `main` 分支。一般更新流程：
+
+```powershell
+git status
+git add <changed-files>
+git commit -m "Describe the update"
+git push origin main
+```
+
+推送成功後，GitHub Pages 通常需要幾十秒到數分鐘重新部署。若要確認線上 HTML 是否已更新，可以用：
+
+```powershell
+Invoke-WebRequest -Uri "https://jamesyyl.github.io/english-vocabulary-practice/" -UseBasicParsing -Headers @{ "Cache-Control" = "no-cache" }
+```
+
+如果本次更新改到 `js/app.js`、`js/vocabulary.js` 或 `css/style.css`，建議同步更新 `index.html` 裡引用檔案的版本參數，避免瀏覽器或 GitHub Pages CDN 混用新舊檔案。例如：
+
+```html
+<link rel="stylesheet" href="css/style.css?v=20260702-category-mission">
+<script src="js/vocabulary.js?v=20260702-category-mission"></script>
+<script src="js/app.js?v=20260702-category-mission"></script>
+```
+
+版本參數只需要在檔案內容有變動時更新，命名可用日期加功能名。若線上畫面仍像舊版，先硬重新整理瀏覽器；再用無快取方式讀取線上 HTML，確認 `index.html` 已部署到最新版本。
+
 ## 第一版限制
 
 - 不做登入、帳號、會員或多人資料。
@@ -129,10 +166,8 @@ node -e "const fs=require('fs'); const vm=require('vm'); const js=fs.readFileSyn
 - 不做後台管理系統。
 - 不做預錄真人音檔，目前使用瀏覽器內建發音。
 - 不保證不同瀏覽器的發音聲音完全一致。
-- 目前尚未建立從 `vocabulary.enriched.json` 自動產生 `vocabulary.js` 的正式腳本。
 - 目前不記錄單字級錯題，只保存各分類下一輪起點。
 
 ## 後續迭代候選
 
-- 建立正式資料產生腳本：`data/vocabulary.enriched.json` → `js/vocabulary.js`。
-- 準備部署到 GitHub Pages。
+- 設計單字級錯題 / 複習紀錄。
