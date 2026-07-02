@@ -1,11 +1,14 @@
 (function () {
   const statusEl = document.getElementById("data-status");
-  const countEl = document.getElementById("word-count");
   const cardEl = document.getElementById("word-card");
   const homeScreen = document.getElementById("home-screen");
   const practiceScreen = document.getElementById("practice-screen");
   const resultScreen = document.getElementById("result-screen");
+  const categoryListEl = document.getElementById("category-list");
+  const selectedCategorySummaryEl = document.getElementById("selected-category-summary");
+  const missionOptionsEl = document.getElementById("mission-options");
   const startPracticeBtn = document.getElementById("start-practice");
+  const practiceTitleEl = document.getElementById("practice-title");
   const progressLabel = document.getElementById("progress-label");
   const speakWordBtn = document.getElementById("speak-word");
   const markKnownBtn = document.getElementById("mark-known");
@@ -22,12 +25,19 @@
 
   const vocabulary = window.VOCABULARY_DATA || [];
   const STORAGE_KEY = "englishVocabularyPracticeProgress:v1";
+  const MISSION_SIZE_OPTIONS = [10, 20, 30];
   const state = {
+    categories: [],
+    selectedCategoryKey: "",
+    selectedMissionSize: null,
     roundWords: [],
     currentIndex: 0,
     knownCount: 0,
     unknownCount: 0,
-    nextStartIndex: 0
+    currentRoundStartIndex: 0,
+    progress: {
+      categories: {}
+    }
   };
 
   function initialize() {
@@ -38,9 +48,11 @@
       return;
     }
 
+    state.categories = buildCategories(vocabulary);
+    state.progress = loadProgress();
     statusEl.textContent = `字庫已載入：${vocabulary.length} 個單字。`;
-    countEl.textContent = `${vocabulary.length} words`;
-    state.roundWords = vocabulary.slice(0, 10);
+    renderCategoryList();
+    renderMissionOptions();
     updateHomeProgress();
     bindEvents();
   }
@@ -66,9 +78,19 @@
   }
 
   function startPractice() {
-    state.nextStartIndex = getSavedStartIndex();
-    state.roundWords = getRoundWords(state.nextStartIndex);
-    state.nextStartIndex = getNextStartIndex(state.nextStartIndex);
+    const category = getSelectedCategory();
+    if (!category || state.selectedMissionSize === null) {
+      return;
+    }
+
+    const progress = getCategoryProgress(category.key);
+    state.currentRoundStartIndex = progress.nextStartIndex;
+    state.roundWords = getRoundWords(category, progress.nextStartIndex, state.selectedMissionSize);
+    if (state.roundWords.length === 0) {
+      updateHomeProgress();
+      return;
+    }
+
     beginRound();
   }
 
@@ -76,13 +98,26 @@
     state.currentIndex = 0;
     state.knownCount = 0;
     state.unknownCount = 0;
+    updatePracticeTitle();
     renderCurrentWord();
     showScreen(practiceScreen);
   }
 
   function startNextRound() {
-    state.roundWords = getRoundWords(state.nextStartIndex);
-    state.nextStartIndex = getNextStartIndex(state.nextStartIndex);
+    const category = getSelectedCategory();
+    if (!category || state.selectedMissionSize === null) {
+      returnHome();
+      return;
+    }
+
+    const progress = getCategoryProgress(category.key);
+    state.currentRoundStartIndex = progress.nextStartIndex;
+    state.roundWords = getRoundWords(category, progress.nextStartIndex, state.selectedMissionSize);
+    if (state.roundWords.length === 0) {
+      returnHome();
+      return;
+    }
+
     beginRound();
   }
 
@@ -91,26 +126,169 @@
   }
 
   function returnHome() {
+    renderCategoryList();
+    renderMissionOptions();
     updateHomeProgress();
     showScreen(homeScreen);
   }
 
   function resetProgress() {
-    saveProgress(0);
-    state.nextStartIndex = 0;
+    state.progress = {
+      categories: {}
+    };
+    saveProgress();
+    renderCategoryList();
+    renderMissionOptions();
     updateHomeProgress();
   }
 
-  function getRoundWords(startIndex) {
-    const round = [];
-    for (let i = 0; i < 10; i += 1) {
-      round.push(vocabulary[(startIndex + i) % vocabulary.length]);
-    }
-    return round;
+  function buildCategories(rows) {
+    const categoryMap = new Map();
+    rows.forEach(function (word) {
+      const key = word.categoryEn || "Uncategorized";
+      if (!categoryMap.has(key)) {
+        categoryMap.set(key, {
+          key,
+          nameEn: key,
+          nameZh: word.categoryZh || "",
+          words: []
+        });
+      }
+
+      categoryMap.get(key).words.push(word);
+    });
+
+    return Array.from(categoryMap.values());
   }
 
-  function getNextStartIndex(currentStartIndex) {
-    return (currentStartIndex + 10) % vocabulary.length;
+  function renderCategoryList() {
+    categoryListEl.innerHTML = state.categories.map(function (category) {
+      const progress = getCategoryProgress(category.key);
+      const completedCount = Math.min(progress.completedCount, category.words.length);
+      const progressWidth = category.words.length > 0 ? (completedCount / category.words.length) * 100 : 0;
+      const isSelected = category.key === state.selectedCategoryKey;
+      const isComplete = completedCount >= category.words.length;
+      return `
+        <button class="category-card${isSelected ? " is-selected" : ""}${isComplete ? " is-complete" : ""}" type="button" data-category-key="${escapeHtml(category.key)}" aria-pressed="${isSelected ? "true" : "false"}">
+          <span class="category-title">
+            <span>${escapeHtml(getCategoryDisplayName(category))}</span>
+            <span class="category-count">${category.words.length}</span>
+          </span>
+          <span class="category-progress">${completedCount} / ${category.words.length} completed</span>
+          <span class="category-meter" aria-hidden="true"><span style="--progress-width: ${progressWidth}%"></span></span>
+        </button>
+      `;
+    }).join("");
+
+    categoryListEl.querySelectorAll(".category-card").forEach(function (button) {
+      button.addEventListener("click", function () {
+        selectCategory(button.getAttribute("data-category-key"));
+      });
+    });
+  }
+
+  function selectCategory(categoryKey) {
+    state.selectedCategoryKey = categoryKey || "";
+    state.selectedMissionSize = getDefaultMissionSize(getSelectedCategory());
+    renderCategoryList();
+    renderMissionOptions();
+    updateHomeProgress();
+  }
+
+  function getCategoryDisplayName(category) {
+    if (!category.nameZh) {
+      return category.nameEn;
+    }
+
+    return `${category.nameEn} | ${category.nameZh}`;
+  }
+
+  function renderMissionOptions() {
+    const category = getSelectedCategory();
+    if (!category) {
+      selectedCategorySummaryEl.textContent = "尚未選擇分類。";
+      missionOptionsEl.innerHTML = "";
+      startPracticeBtn.disabled = true;
+      startPracticeBtn.textContent = "開始練習";
+      return;
+    }
+
+    const progress = getCategoryProgress(category.key);
+    const remainingCount = getRemainingCount(category);
+    if (remainingCount <= 0) {
+      selectedCategorySummaryEl.textContent = `${category.nameEn} 已完成，共 ${category.words.length} 個字。`;
+      missionOptionsEl.innerHTML = "";
+      startPracticeBtn.disabled = true;
+      startPracticeBtn.textContent = "分類已完成";
+      return;
+    }
+
+    selectedCategorySummaryEl.textContent = `${category.nameEn} 還有 ${remainingCount} / ${category.words.length} 個字可練，下一題從第 ${progress.nextStartIndex + 1} 個字開始。`;
+    const options = getMissionOptions(remainingCount);
+    if (!options.some(function (option) { return option.value === state.selectedMissionSize; })) {
+      state.selectedMissionSize = getDefaultMissionSize(category);
+    }
+
+    missionOptionsEl.innerHTML = options.map(function (option) {
+      const isSelected = option.value === state.selectedMissionSize;
+      return `
+        <button class="mission-option${isSelected ? " is-selected" : ""}" type="button" data-mission-size="${escapeHtml(option.value)}" aria-pressed="${isSelected ? "true" : "false"}">
+          ${escapeHtml(option.label)}
+        </button>
+      `;
+    }).join("");
+
+    missionOptionsEl.querySelectorAll(".mission-option").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const rawValue = button.getAttribute("data-mission-size");
+        state.selectedMissionSize = rawValue === "all" ? "all" : Number(rawValue);
+        renderMissionOptions();
+        updateHomeProgress();
+      });
+    });
+
+    startPracticeBtn.disabled = state.selectedMissionSize === null;
+    startPracticeBtn.textContent = "開始練習";
+  }
+
+  function getMissionOptions(remainingCount) {
+    const options = MISSION_SIZE_OPTIONS
+      .filter(function (size) {
+        return remainingCount >= size;
+      })
+      .map(function (size) {
+        return {
+          label: `${size} 字`,
+          value: size
+        };
+      });
+
+    options.push({
+      label: `全部 ${remainingCount} 字`,
+      value: "all"
+    });
+
+    return options;
+  }
+
+  function getDefaultMissionSize(category) {
+    if (!category) {
+      return null;
+    }
+
+    const remainingCount = getRemainingCount(category);
+    if (remainingCount <= 0) {
+      return null;
+    }
+
+    return remainingCount >= 10 ? 10 : "all";
+  }
+
+  function getRoundWords(category, startIndex, missionSize) {
+    const remainingWords = category.words.slice(startIndex);
+    const requestedCount = missionSize === "all" ? remainingWords.length : Number(missionSize);
+    const roundSize = Math.min(requestedCount, remainingWords.length);
+    return remainingWords.slice(0, roundSize);
   }
 
   function handleAnswer(result) {
@@ -201,52 +379,131 @@
   }
 
   function showResult() {
-    saveProgress(state.nextStartIndex);
+    const category = getSelectedCategory();
+    if (category) {
+      const nextStartIndex = Math.min(state.currentRoundStartIndex + state.roundWords.length, category.words.length);
+      state.progress.categories[category.key] = {
+        nextStartIndex,
+        completedCount: nextStartIndex,
+        savedAt: new Date().toISOString()
+      };
+      saveProgress();
+    }
+
     resultTotalEl.textContent = String(state.roundWords.length);
     resultKnownEl.textContent = String(state.knownCount);
     resultUnknownEl.textContent = String(state.unknownCount);
-    resultNoteEl.textContent = `下一輪將從第 ${state.nextStartIndex + 1} 個單字開始；進度已保存在這台裝置，也可以重複本輪 10 題。`;
+    updateResultActions();
     showScreen(resultScreen);
   }
 
   function updateHomeProgress() {
-    const savedStartIndex = getSavedStartIndex();
-    const hasProgress = savedStartIndex > 0;
-    if (hasProgress) {
-      progressStatusEl.textContent = `已記住進度：下次從第 ${savedStartIndex + 1} 個單字開始。`;
-      startPracticeBtn.textContent = "從上次進度繼續";
-      resetProgressBtn.classList.remove("is-hidden");
+    const completedCount = state.categories.reduce(function (total, category) {
+      return total + Math.min(getCategoryProgress(category.key).completedCount, category.words.length);
+    }, 0);
+    const hasProgress = completedCount > 0;
+    const totalCount = vocabulary.length;
+    const selectedCategory = getSelectedCategory();
+
+    if (selectedCategory) {
+      const remainingCount = getRemainingCount(selectedCategory);
+      if (remainingCount > 0 && state.selectedMissionSize !== null) {
+        const roundSize = state.selectedMissionSize === "all" ? remainingCount : Math.min(Number(state.selectedMissionSize), remainingCount);
+        progressStatusEl.textContent = `本次將練 ${selectedCategory.nameEn} 的 ${roundSize} 個字。總進度 ${completedCount} / ${totalCount}。`;
+      } else {
+        progressStatusEl.textContent = `${selectedCategory.nameEn} 已完成。總進度 ${completedCount} / ${totalCount}。`;
+      }
+    } else {
+      progressStatusEl.textContent = hasProgress
+        ? `已保存分類進度：總共完成 ${completedCount} / ${totalCount} 個字。`
+        : "尚未保存進度。先選分類，再選本次字數。";
+    }
+
+    resetProgressBtn.classList.toggle("is-hidden", !hasProgress);
+  }
+
+  function updatePracticeTitle() {
+    const category = getSelectedCategory();
+    practiceTitleEl.textContent = category ? `${category.nameEn} 單字卡` : "單字卡";
+  }
+
+  function updateResultActions() {
+    const category = getSelectedCategory();
+    const remainingCount = category ? getRemainingCount(category) : 0;
+    const chosenSizeLabel = state.selectedMissionSize === "all" ? "全部" : `${state.selectedMissionSize} 字`;
+    if (category && remainingCount > 0) {
+      const nextRoundSize = state.selectedMissionSize === "all" ? remainingCount : Math.min(Number(state.selectedMissionSize), remainingCount);
+      nextRoundBtn.disabled = false;
+      nextRoundBtn.textContent = `繼續下一輪 ${nextRoundSize} 題`;
+      resultNoteEl.textContent = `${category.nameEn} 還有 ${remainingCount} 個字；本次選擇是 ${chosenSizeLabel}，進度已保存在這台裝置。`;
       return;
     }
 
-    progressStatusEl.textContent = "尚未保存進度。完成一輪後會自動記住下一輪起點。";
-    startPracticeBtn.textContent = "開始練習";
-    resetProgressBtn.classList.add("is-hidden");
+    nextRoundBtn.disabled = true;
+    nextRoundBtn.textContent = "分類已完成";
+    resultNoteEl.textContent = category
+      ? `${category.nameEn} 已全部完成；可以回首頁選其他分類，或重複本輪加強。`
+      : "本輪已完成；可以回首頁選其他分類，或重複本輪加強。";
   }
 
-  function getSavedStartIndex() {
-    try {
-      const rawValue = window.localStorage.getItem(STORAGE_KEY);
-      if (!rawValue) {
-        return 0;
-      }
+  function getSelectedCategory() {
+    return state.categories.find(function (category) {
+      return category.key === state.selectedCategoryKey;
+    }) || null;
+  }
 
-      const saved = JSON.parse(rawValue);
-      const nextStartIndex = Number(saved.nextStartIndex);
-      if (Number.isInteger(nextStartIndex) && nextStartIndex >= 0 && nextStartIndex < vocabulary.length) {
-        return nextStartIndex;
-      }
-    } catch (error) {
+  function getRemainingCount(category) {
+    const progress = getCategoryProgress(category.key);
+    return Math.max(category.words.length - progress.nextStartIndex, 0);
+  }
+
+  function getCategoryProgress(categoryKey) {
+    const category = state.categories.find(function (item) {
+      return item.key === categoryKey;
+    });
+    const total = category ? category.words.length : 0;
+    const saved = state.progress.categories[categoryKey] || {};
+    const nextStartIndex = normalizeIndex(saved.nextStartIndex, total);
+    const completedCount = normalizeIndex(saved.completedCount ?? nextStartIndex, total);
+    return {
+      nextStartIndex,
+      completedCount
+    };
+  }
+
+  function normalizeIndex(value, total) {
+    const numberValue = Number(value);
+    if (!Number.isInteger(numberValue) || numberValue < 0) {
       return 0;
     }
 
-    return 0;
+    return Math.min(numberValue, total);
   }
 
-  function saveProgress(nextStartIndex) {
+  function loadProgress() {
+    try {
+      const rawValue = window.localStorage.getItem(STORAGE_KEY);
+      if (!rawValue) {
+        return { categories: {} };
+      }
+
+      const saved = JSON.parse(rawValue);
+      if (saved && saved.categories && typeof saved.categories === "object") {
+        return {
+          categories: saved.categories
+        };
+      }
+    } catch (error) {
+      return { categories: {} };
+    }
+
+    return { categories: {} };
+  }
+
+  function saveProgress() {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        nextStartIndex,
+        categories: state.progress.categories,
         savedAt: new Date().toISOString()
       }));
     } catch (error) {

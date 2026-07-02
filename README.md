@@ -7,13 +7,13 @@
 直接用瀏覽器打開：
 
 ```text
-app/index.html
+index.html
 ```
 
 在目前本機的完整路徑是：
 
 ```text
-D:/ob-codex/01-Projects/P-英語單字練習/app/index.html
+D:/GitHub/english-vocabulary-practice/index.html
 ```
 
 第一版設計成可以用 `file://` 直接開啟，因此目前不需要啟動 dev server。
@@ -27,24 +27,25 @@ D:/ob-codex/01-Projects/P-英語單字練習/app/index.html
 - 顯示自然發音拆字提示。
 - 使用瀏覽器 Web Speech API / `speechSynthesis` 播放單字發音。
 - 提供「學會了」與「還不會」兩個操作。
-- 每輪 10 題，完成後顯示本輪統計。
-- 可以繼續下一輪，也可以重複本輪。
-- 使用 `localStorage` 保存本機續學進度。
+- 首頁依 `categoryEn` 顯示分類與已完成數 / 分類總數。
+- 選擇分類後，可以選本次練習 `10`、`20`、`30` 或該分類剩餘全部單字；分類不足 10 字時允許直接練習全部。
+- 完成後顯示本輪統計。
+- 可以在同分類繼續下一輪，也可以重複本輪。
+- 使用 `localStorage` 保存各分類的本機續學進度。
 - 首頁可以重設本機進度。
 
 ## 專案結構
 
 ```text
-app/
-  index.html
-  css/style.css
-  js/app.js
-  js/vocabulary.js
+index.html
+css/
+  style.css
+js/
+  app.js
+  vocabulary.js
 data/
   G6_vocabulary_p1-p2.original.json
   vocabulary.enriched.json
-Requirement.md
-implementation_plan.md
 README.md
 ```
 
@@ -71,15 +72,15 @@ data/G6_vocabulary_p1-p2.original.json
 ```text
 data/G6_vocabulary_p1-p2.original.json
 → data/vocabulary.enriched.json
-→ app/js/vocabulary.js
-→ app/index.html
+→ js/vocabulary.js
+→ index.html
 ```
 
 各檔案用途：
 
 - `data/G6_vocabulary_p1-p2.original.json`: 原始資料複本，不手動改單字、詞性、中文意思。
 - `data/vocabulary.enriched.json`: 可維護的補充資料來源，包含英文解釋、例句、片語、自然發音拆字。
-- `app/js/vocabulary.js`: 目前前端實際讀取的資料檔，透過 `window.VOCABULARY_DATA` 提供資料。
+- `js/vocabulary.js`: 目前前端實際讀取的資料檔，透過 `window.VOCABULARY_DATA` 提供資料。
 
 目前因為第一版要支援直接用 `file://` 開啟，所以前端讀 `app/js/vocabulary.js`，而不是直接 `fetch()` JSON。之後若部署到 GitHub Pages，可以再整理成更正式的產生流程。
 
@@ -111,14 +112,14 @@ data/G6_vocabulary_p1-p2.original.json
 語法檢查：
 
 ```powershell
-node --check app/js/app.js
-node --check app/js/vocabulary.js
+node --check js/app.js
+node --check js/vocabulary.js
 ```
 
 檢查資料筆數與補充欄位：
 
 ```powershell
-node -e "const fs=require('fs'); const vm=require('vm'); const js=fs.readFileSync('app/js/vocabulary.js','utf8'); const sandbox={window:{}}; vm.runInNewContext(js,sandbox); const rows=sandbox.window.VOCABULARY_DATA; const missing=rows.filter(e=>!e.englishDefinition||!e.exampleSentence||!e.phrase||!e.phonicsHint); const short=rows.filter(e=>e.exampleSentence.split(/[^A-Za-z']+/).filter(Boolean).length<7); console.log({total:rows.length, missing:missing.length, shortExamples:short.length});"
+node -e "const fs=require('fs'); const vm=require('vm'); const js=fs.readFileSync('js/vocabulary.js','utf8'); const sandbox={window:{}}; vm.runInNewContext(js,sandbox); const rows=sandbox.window.VOCABULARY_DATA; const missing=rows.filter(e=>!e.englishDefinition||!e.exampleSentence||!e.phrase||!e.phonicsHint); const short=rows.filter(e=>e.exampleSentence.split(/[^A-Za-z']+/).filter(Boolean).length<7); console.log({total:rows.length, missing:missing.length, shortExamples:short.length});"
 ```
 
 ## 第一版限制
@@ -128,15 +129,10 @@ node -e "const fs=require('fs'); const vm=require('vm'); const js=fs.readFileSyn
 - 不做後台管理系統。
 - 不做預錄真人音檔，目前使用瀏覽器內建發音。
 - 不保證不同瀏覽器的發音聲音完全一致。
-- 目前首頁尚未依分類建立 mission 模式。
 - 目前尚未建立從 `vocabulary.enriched.json` 自動產生 `vocabulary.js` 的正式腳本。
+- 目前不記錄單字級錯題，只保存各分類下一輪起點。
 
 ## 後續迭代候選
 
-- 首頁依 `categoryEn` 顯示分類。
-- 每個分類顯示已完成數 / 分類總數。
-- 點選分類後，只練習該分類單字。
-- 每 10 字為一個 mission，最後不足 10 字時按實際剩餘字數出題。
-- 將進度從單一 `nextStartIndex` 改為 per-category progress。
-- 建立正式資料產生腳本：`data/vocabulary.enriched.json` → `app/js/vocabulary.js`。
+- 建立正式資料產生腳本：`data/vocabulary.enriched.json` → `js/vocabulary.js`。
 - 準備部署到 GitHub Pages。
