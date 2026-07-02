@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>英語單字練習</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="screen home-screen is-active" id="home-screen" aria-labelledby="app-title">
+      <div class="home-panel">
+        <p class="eyebrow">G6 vocabulary p1-p2</p>
+        <h1 id="app-title">英語單字練習</h1>
+        <p class="intro">每輪 10 題，先看單字、聽發音，再判斷自己是否已經學會。</p>
+        <div class="data-status" id="data-status">正在讀取字庫...</div>
+        <div class="progress-status" id="progress-status">完成一輪後會自動記住下一輪起點。</div>
+        <p>準備好後開始 10 題練習；完成後可以繼續下一輪，或重複本輪加強。</p>
+        <div class="home-actions">
+          <button class="primary-action" id="start-practice" type="button">開始練習</button>
+          <button class="secondary-action reset-action is-hidden" id="reset-progress" type="button">重設進度</button>
+          <span id="word-count" class="count-pill">0 words</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen practice-screen" id="practice-screen" aria-labelledby="practice-title" aria-hidden="true">
+      <header class="practice-header">
+        <div>
+          <p class="eyebrow">Practice round</p>
+          <h2 id="practice-title">單字卡</h2>
+        </div>
+        <div class="progress-pill" id="progress-label">1 / 10</div>
+      </header>
+
+      <div class="word-card" id="word-card">
+        <p class="empty-state">尚未載入單字。</p>
+      </div>
+
+      <div class="practice-actions" aria-label="練習操作">
+        <button class="audio-action" id="speak-word" type="button">發音 / 重播</button>
+        <div class="judgement-actions">
+          <button class="known-action" id="mark-known" type="button">學會了</button>
+          <button class="unknown-action" id="mark-unknown" type="button">還不會</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen result-screen" id="result-screen" aria-labelledby="result-title" aria-hidden="true">
+      <p class="eyebrow">Round complete</p>
+      <h2 id="result-title">本輪完成</h2>
+      <div class="result-grid" aria-label="本輪統計">
+        <div class="result-item">
+          <span class="result-number" id="result-total">10</span>
+          <span class="result-label">本輪總題數</span>
+        </div>
+        <div class="result-item">
+          <span class="result-number" id="result-known">0</span>
+          <span class="result-label">學會了</span>
+        </div>
+        <div class="result-item">
+          <span class="result-number" id="result-unknown">0</span>
+          <span class="result-label">還不會</span>
+        </div>
+      </div>
+      <div class="result-actions" aria-label="下一步操作">
+        <button class="primary-action" id="next-round" type="button">繼續下一輪 10 題</button>
+        <button class="secondary-action" id="repeat-round" type="button">重複本輪練習</button>
+        <button class="secondary-action" id="return-home" type="button">回到首頁</button>
+      </div>
+      <p class="result-note" id="result-note">可以繼續下一組單字，或用同一組 10 題再練一次。</p>
+    </section>
+  </main>
+
+  <script src="js/vocabulary.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

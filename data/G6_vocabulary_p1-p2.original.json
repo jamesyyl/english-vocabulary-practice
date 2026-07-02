@@ -1,0 +1,1464 @@
+{
+  "source_pdf": "toefl primary classify words new new G6.pdf",
+  "pages": "p1-p2",
+  "total_count": 230,
+  "categories": [
+    {
+      "category_zh": "動詞",
+      "category_en": "Verbs",
+      "count": 33,
+      "entries": [
+        {
+          "no": 1,
+          "word": "agree",
+          "part_of_speech": "v.",
+          "meaning_zh": "同意"
+        },
+        {
+          "no": 2,
+          "word": "announce",
+          "part_of_speech": "v.",
+          "meaning_zh": "宣佈"
+        },
+        {
+          "no": 3,
+          "word": "arrive",
+          "part_of_speech": "v.",
+          "meaning_zh": "抵達"
+        },
+        {
+          "no": 4,
+          "word": "apologize",
+          "part_of_speech": "v.",
+          "meaning_zh": "道歉"
+        },
+        {
+          "no": 5,
+          "word": "bend",
+          "part_of_speech": "v.",
+          "meaning_zh": "彎曲"
+        },
+        {
+          "no": 6,
+          "word": "borrow",
+          "part_of_speech": "v.",
+          "meaning_zh": "借"
+        },
+        {
+          "no": 7,
+          "word": "bounce",
+          "part_of_speech": "v.&n.",
+          "meaning_zh": "彈力"
+        },
+        {
+          "no": 8,
+          "word": "check",
+          "part_of_speech": "v.",
+          "meaning_zh": "檢查"
+        },
+        {
+          "no": 9,
+          "word": "complete",
+          "part_of_speech": "adj.; v.",
+          "meaning_zh": "完全的; 完成"
+        },
+        {
+          "no": 10,
+          "word": "continue",
+          "part_of_speech": "v.",
+          "meaning_zh": "繼續"
+        },
+        {
+          "no": 11,
+          "word": "cover",
+          "part_of_speech": "n.; v.",
+          "meaning_zh": "掩蔽物；覆蓋"
+        },
+        {
+          "no": 12,
+          "word": "describe",
+          "part_of_speech": "v.",
+          "meaning_zh": "描寫, 敘述"
+        },
+        {
+          "no": 13,
+          "word": "explain",
+          "part_of_speech": "v.",
+          "meaning_zh": "說明，解釋"
+        },
+        {
+          "no": 14,
+          "word": "enter",
+          "part_of_speech": "v.",
+          "meaning_zh": "進入, 進去"
+        },
+        {
+          "no": 15,
+          "word": "fill",
+          "part_of_speech": "v.",
+          "meaning_zh": "裝滿，填滿"
+        },
+        {
+          "no": 16,
+          "word": "reach",
+          "part_of_speech": "v.",
+          "meaning_zh": "到達"
+        },
+        {
+          "no": 17,
+          "word": "receive",
+          "part_of_speech": "v.",
+          "meaning_zh": "收到, 接到"
+        },
+        {
+          "no": 18,
+          "word": "return",
+          "part_of_speech": "v.",
+          "meaning_zh": "返回, 回來"
+        },
+        {
+          "no": 19,
+          "word": "repeat",
+          "part_of_speech": "v.",
+          "meaning_zh": "重說"
+        },
+        {
+          "no": 20,
+          "word": "remind",
+          "part_of_speech": "vt.",
+          "meaning_zh": "使想起"
+        },
+        {
+          "no": 21,
+          "word": "search",
+          "part_of_speech": "n.& v.",
+          "meaning_zh": "搜索, 尋找"
+        },
+        {
+          "no": 22,
+          "word": "separate",
+          "part_of_speech": "v.; adj.",
+          "meaning_zh": "分離；分開的"
+        },
+        {
+          "no": 23,
+          "word": "spend",
+          "part_of_speech": "v.",
+          "meaning_zh": "花（錢/時間）"
+        },
+        {
+          "no": 24,
+          "word": "report",
+          "part_of_speech": "n.& v.",
+          "meaning_zh": "報告；報導"
+        },
+        {
+          "no": 25,
+          "word": "clap",
+          "part_of_speech": "v.",
+          "meaning_zh": "鼓掌，拍手"
+        },
+        {
+          "no": 26,
+          "word": "rule",
+          "part_of_speech": "v.; n.",
+          "meaning_zh": "統治; 規則"
+        },
+        {
+          "no": 27,
+          "word": "travel",
+          "part_of_speech": "v.&n.",
+          "meaning_zh": "旅行"
+        },
+        {
+          "no": 28,
+          "word": "wish",
+          "part_of_speech": "v.; n.",
+          "meaning_zh": "希望；祝願"
+        },
+        {
+          "no": 29,
+          "word": "work",
+          "part_of_speech": "v.&n.",
+          "meaning_zh": "工作"
+        },
+        {
+          "no": 30,
+          "word": "cough",
+          "part_of_speech": "n.& v.",
+          "meaning_zh": "咳嗽"
+        },
+        {
+          "no": 31,
+          "word": "headache",
+          "part_of_speech": "n.",
+          "meaning_zh": "頭疼"
+        },
+        {
+          "no": 32,
+          "word": "present",
+          "part_of_speech": "v.; n.",
+          "meaning_zh": "呈現；禮物"
+        },
+        {
+          "no": 33,
+          "word": "schedule",
+          "part_of_speech": "v.; n.",
+          "meaning_zh": "安排；時間表"
+        }
+      ]
+    },
+    {
+      "category_zh": "形容詞",
+      "category_en": "Adjectives",
+      "count": 32,
+      "entries": [
+        {
+          "no": 1,
+          "word": "asleep",
+          "part_of_speech": "adj.",
+          "meaning_zh": "睡著的"
+        },
+        {
+          "no": 2,
+          "word": "awake",
+          "part_of_speech": "adj.",
+          "meaning_zh": "醒著的"
+        },
+        {
+          "no": 3,
+          "word": "brave",
+          "part_of_speech": "adj.",
+          "meaning_zh": "勇敢的"
+        },
+        {
+          "no": 4,
+          "word": "comfortable",
+          "part_of_speech": "adj.",
+          "meaning_zh": "感到舒服的"
+        },
+        {
+          "no": 5,
+          "word": "curious",
+          "part_of_speech": "adj.",
+          "meaning_zh": "好奇的"
+        },
+        {
+          "no": 6,
+          "word": "closed",
+          "part_of_speech": "adj.",
+          "meaning_zh": "關著的；不公開的"
+        },
+        {
+          "no": 7,
+          "word": "closing",
+          "part_of_speech": "adj.; n.",
+          "meaning_zh": "結束的；關閉"
+        },
+        {
+          "no": 8,
+          "word": "difficult",
+          "part_of_speech": "adj.",
+          "meaning_zh": "困難的"
+        },
+        {
+          "no": 9,
+          "word": "different",
+          "part_of_speech": "adj.",
+          "meaning_zh": "不同的"
+        },
+        {
+          "no": 10,
+          "word": "dangerous",
+          "part_of_speech": "adj.",
+          "meaning_zh": "有危險的"
+        },
+        {
+          "no": 11,
+          "word": "special",
+          "part_of_speech": "n.",
+          "meaning_zh": "特殊的"
+        },
+        {
+          "no": 12,
+          "word": "dead",
+          "part_of_speech": "adj.",
+          "meaning_zh": "無生命的"
+        },
+        {
+          "no": 13,
+          "word": "friendly",
+          "part_of_speech": "adj.",
+          "meaning_zh": "友好的"
+        },
+        {
+          "no": 14,
+          "word": "finished",
+          "part_of_speech": "adj.",
+          "meaning_zh": "完成了的"
+        },
+        {
+          "no": 15,
+          "word": "opposite",
+          "part_of_speech": "adj.",
+          "meaning_zh": "相反的"
+        },
+        {
+          "no": 16,
+          "word": "serious",
+          "part_of_speech": "adj.",
+          "meaning_zh": "嚴肅的,認真的"
+        },
+        {
+          "no": 17,
+          "word": "silent",
+          "part_of_speech": "adj.",
+          "meaning_zh": "沉默的"
+        },
+        {
+          "no": 18,
+          "word": "stomachache",
+          "part_of_speech": "adj.",
+          "meaning_zh": "胃疼的"
+        },
+        {
+          "no": 19,
+          "word": "weak",
+          "part_of_speech": "adj.",
+          "meaning_zh": "虛弱的"
+        },
+        {
+          "no": 20,
+          "word": "alone",
+          "part_of_speech": "adj.",
+          "meaning_zh": "單獨的"
+        },
+        {
+          "no": 21,
+          "word": "bright",
+          "part_of_speech": "adj.",
+          "meaning_zh": "光亮的"
+        },
+        {
+          "no": 22,
+          "word": "loving",
+          "part_of_speech": "adj.",
+          "meaning_zh": "充滿愛的"
+        },
+        {
+          "no": 23,
+          "word": "fair",
+          "part_of_speech": "adj.",
+          "meaning_zh": "公平的"
+        },
+        {
+          "no": 24,
+          "word": "excellent",
+          "part_of_speech": "adj.",
+          "meaning_zh": "優秀的"
+        },
+        {
+          "no": 25,
+          "word": "excited",
+          "part_of_speech": "adj.",
+          "meaning_zh": "興奮的"
+        },
+        {
+          "no": 26,
+          "word": "exciting",
+          "part_of_speech": "adj.",
+          "meaning_zh": "令人興奮的"
+        },
+        {
+          "no": 27,
+          "word": "silly",
+          "part_of_speech": "adj.",
+          "meaning_zh": "愚蠢的"
+        },
+        {
+          "no": 28,
+          "word": "square",
+          "part_of_speech": "adj.",
+          "meaning_zh": "正方形的"
+        },
+        {
+          "no": 29,
+          "word": "round",
+          "part_of_speech": "adj.; n.",
+          "meaning_zh": "圓形的；圓形物"
+        },
+        {
+          "no": 30,
+          "word": "glad",
+          "part_of_speech": "adj.",
+          "meaning_zh": "高興的"
+        },
+        {
+          "no": 31,
+          "word": "far",
+          "part_of_speech": "adj.",
+          "meaning_zh": "遠的"
+        },
+        {
+          "no": 32,
+          "word": "crazy",
+          "part_of_speech": "adj.",
+          "meaning_zh": "瘋狂的"
+        }
+      ]
+    },
+    {
+      "category_zh": "介系詞",
+      "category_en": "Preposition",
+      "count": 4,
+      "entries": [
+        {
+          "no": 1,
+          "word": "against",
+          "part_of_speech": "prep.",
+          "meaning_zh": "反對"
+        },
+        {
+          "no": 2,
+          "word": "along",
+          "part_of_speech": "prep.",
+          "meaning_zh": "沿著"
+        },
+        {
+          "no": 3,
+          "word": "except",
+          "part_of_speech": "prep.",
+          "meaning_zh": "除…之外"
+        },
+        {
+          "no": 4,
+          "word": "since",
+          "part_of_speech": "prep.",
+          "meaning_zh": "自......以後"
+        }
+      ]
+    },
+    {
+      "category_zh": "代名詞",
+      "category_en": "Pronoun",
+      "count": 36,
+      "entries": [
+        {
+          "no": 1,
+          "word": "either",
+          "part_of_speech": "pron.& adj.",
+          "meaning_zh": "(兩者中)任一"
+        },
+        {
+          "no": 2,
+          "word": "hers",
+          "part_of_speech": "pron.",
+          "meaning_zh": "她的"
+        },
+        {
+          "no": 3,
+          "word": "mine",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我的（所有格代名詞）"
+        },
+        {
+          "no": 4,
+          "word": "nothing",
+          "part_of_speech": "pron.",
+          "meaning_zh": "沒有東西"
+        },
+        {
+          "no": 5,
+          "word": "none",
+          "part_of_speech": "pron.",
+          "meaning_zh": "沒有人/物"
+        },
+        {
+          "no": 6,
+          "word": "nobody",
+          "part_of_speech": "pron.",
+          "meaning_zh": "無人"
+        },
+        {
+          "no": 7,
+          "word": "ours",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我們的（名詞性物主代詞）"
+        },
+        {
+          "no": 8,
+          "word": "ourselves",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我們自己"
+        },
+        {
+          "no": 9,
+          "word": "somebody",
+          "part_of_speech": "pron.",
+          "meaning_zh": "某人"
+        },
+        {
+          "no": 10,
+          "word": "someone",
+          "part_of_speech": "pron.",
+          "meaning_zh": "某人"
+        },
+        {
+          "no": 11,
+          "word": "something",
+          "part_of_speech": "pron.",
+          "meaning_zh": "某事"
+        },
+        {
+          "no": 12,
+          "word": "yours",
+          "part_of_speech": "pron.",
+          "meaning_zh": "你（們）的"
+        },
+        {
+          "no": 13,
+          "word": "yourself",
+          "part_of_speech": "pron.",
+          "meaning_zh": "你自己"
+        },
+        {
+          "no": 14,
+          "word": "her",
+          "part_of_speech": "pron.",
+          "meaning_zh": "(受格)她;(所有格)她的"
+        },
+        {
+          "no": 15,
+          "word": "him",
+          "part_of_speech": "pron.",
+          "meaning_zh": "(受格)他"
+        },
+        {
+          "no": 16,
+          "word": "its",
+          "part_of_speech": "det.",
+          "meaning_zh": "它的"
+        },
+        {
+          "no": 17,
+          "word": "me",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我（受格）"
+        },
+        {
+          "no": 18,
+          "word": "our",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我們的"
+        },
+        {
+          "no": 19,
+          "word": "their",
+          "part_of_speech": "det.",
+          "meaning_zh": "他們的"
+        },
+        {
+          "no": 20,
+          "word": "them",
+          "part_of_speech": "pron.",
+          "meaning_zh": "他們"
+        },
+        {
+          "no": 21,
+          "word": "these",
+          "part_of_speech": "det. & pron.",
+          "meaning_zh": "這些"
+        },
+        {
+          "no": 22,
+          "word": "they",
+          "part_of_speech": "pron.",
+          "meaning_zh": "他們"
+        },
+        {
+          "no": 23,
+          "word": "those",
+          "part_of_speech": "det. & pron.",
+          "meaning_zh": "那些"
+        },
+        {
+          "no": 24,
+          "word": "us",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我們"
+        },
+        {
+          "no": 25,
+          "word": "we",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我們"
+        },
+        {
+          "no": 26,
+          "word": "whose",
+          "part_of_speech": "det.&pron.",
+          "meaning_zh": "誰的"
+        },
+        {
+          "no": 27,
+          "word": "anything",
+          "part_of_speech": "pron.",
+          "meaning_zh": "任何事"
+        },
+        {
+          "no": 28,
+          "word": "anybody",
+          "part_of_speech": "pron.",
+          "meaning_zh": "任何人"
+        },
+        {
+          "no": 29,
+          "word": "anyone",
+          "part_of_speech": "pron.",
+          "meaning_zh": "任何人"
+        },
+        {
+          "no": 30,
+          "word": "everybody",
+          "part_of_speech": "pron.",
+          "meaning_zh": "每人"
+        },
+        {
+          "no": 31,
+          "word": "everyone",
+          "part_of_speech": "pron.",
+          "meaning_zh": "每人"
+        },
+        {
+          "no": 32,
+          "word": "everything",
+          "part_of_speech": "pron.",
+          "meaning_zh": "每件事"
+        },
+        {
+          "no": 33,
+          "word": "everywhere",
+          "part_of_speech": "adv.&pron.&conj.",
+          "meaning_zh": "到處"
+        },
+        {
+          "no": 34,
+          "word": "herself",
+          "part_of_speech": "pron.",
+          "meaning_zh": "她自己"
+        },
+        {
+          "no": 35,
+          "word": "himself",
+          "part_of_speech": "pron.",
+          "meaning_zh": "他自己"
+        },
+        {
+          "no": 36,
+          "word": "myself",
+          "part_of_speech": "pron.",
+          "meaning_zh": "我自己"
+        }
+      ]
+    },
+    {
+      "category_zh": "副詞",
+      "category_en": "Adverb",
+      "count": 11,
+      "entries": [
+        {
+          "no": 1,
+          "word": "absolutely",
+          "part_of_speech": "adv.",
+          "meaning_zh": "完全地"
+        },
+        {
+          "no": 2,
+          "word": "afterward(s)",
+          "part_of_speech": "adv.",
+          "meaning_zh": "後來地"
+        },
+        {
+          "no": 3,
+          "word": "almost*",
+          "part_of_speech": "adv.",
+          "meaning_zh": "幾乎"
+        },
+        {
+          "no": 4,
+          "word": "already",
+          "part_of_speech": "adv.",
+          "meaning_zh": "已經"
+        },
+        {
+          "no": 5,
+          "word": "ahead",
+          "part_of_speech": "adv.",
+          "meaning_zh": "向前"
+        },
+        {
+          "no": 6,
+          "word": "completely",
+          "part_of_speech": "adv.",
+          "meaning_zh": "完全地"
+        },
+        {
+          "no": 7,
+          "word": "differently",
+          "part_of_speech": "adv.",
+          "meaning_zh": "不同地"
+        },
+        {
+          "no": 8,
+          "word": "else",
+          "part_of_speech": "adv.; adj.",
+          "meaning_zh": "另外；別的"
+        },
+        {
+          "no": 9,
+          "word": "sincerely",
+          "part_of_speech": "adv.",
+          "meaning_zh": "真誠地"
+        },
+        {
+          "no": 10,
+          "word": "suddenly",
+          "part_of_speech": "adv.",
+          "meaning_zh": "突然"
+        },
+        {
+          "no": 11,
+          "word": "yet",
+          "part_of_speech": "adv.",
+          "meaning_zh": "還"
+        }
+      ]
+    },
+    {
+      "category_zh": "職業",
+      "category_en": "Occupation",
+      "count": 18,
+      "entries": [
+        {
+          "no": 1,
+          "word": "baker",
+          "part_of_speech": "n.",
+          "meaning_zh": "烘焙師"
+        },
+        {
+          "no": 2,
+          "word": "writer",
+          "part_of_speech": "n.",
+          "meaning_zh": "作家"
+        },
+        {
+          "no": 3,
+          "word": "worker",
+          "part_of_speech": "n.",
+          "meaning_zh": "工人"
+        },
+        {
+          "no": 4,
+          "word": "singer",
+          "part_of_speech": "n.",
+          "meaning_zh": "歌手"
+        },
+        {
+          "no": 5,
+          "word": "pilot",
+          "part_of_speech": "n.",
+          "meaning_zh": "飛行員"
+        },
+        {
+          "no": 6,
+          "word": "doctor",
+          "part_of_speech": "n.",
+          "meaning_zh": "醫生；博士"
+        },
+        {
+          "no": 7,
+          "word": "farmer",
+          "part_of_speech": "n.",
+          "meaning_zh": "農夫"
+        },
+        {
+          "no": 8,
+          "word": "actor",
+          "part_of_speech": "n.",
+          "meaning_zh": "演員"
+        },
+        {
+          "no": 9,
+          "word": "actress",
+          "part_of_speech": "n.",
+          "meaning_zh": "女演員"
+        },
+        {
+          "no": 10,
+          "word": "artist",
+          "part_of_speech": "n.",
+          "meaning_zh": "藝術家"
+        },
+        {
+          "no": 11,
+          "word": "chef",
+          "part_of_speech": "n.",
+          "meaning_zh": "〈法〉廚師"
+        },
+        {
+          "no": 12,
+          "word": "dentist",
+          "part_of_speech": "n.",
+          "meaning_zh": "牙醫"
+        },
+        {
+          "no": 13,
+          "word": "driver",
+          "part_of_speech": "n.",
+          "meaning_zh": "駕駛員"
+        },
+        {
+          "no": 14,
+          "word": "firefighter",
+          "part_of_speech": "n.",
+          "meaning_zh": "消防隊員"
+        },
+        {
+          "no": 15,
+          "word": "librarian",
+          "part_of_speech": "n.",
+          "meaning_zh": "圖書館館員"
+        },
+        {
+          "no": 16,
+          "word": "nurse",
+          "part_of_speech": "n.",
+          "meaning_zh": "護士"
+        },
+        {
+          "no": 17,
+          "word": "scientist",
+          "part_of_speech": "n.",
+          "meaning_zh": "科學家"
+        },
+        {
+          "no": 18,
+          "word": "dancer",
+          "part_of_speech": "n.",
+          "meaning_zh": "舞蹈演員"
+        }
+      ]
+    },
+    {
+      "category_zh": "連接詞",
+      "category_en": "Conjunction",
+      "count": 7,
+      "entries": [
+        {
+          "no": 1,
+          "word": "and",
+          "part_of_speech": "conj.",
+          "meaning_zh": "和"
+        },
+        {
+          "no": 2,
+          "word": "as",
+          "part_of_speech": "conj.",
+          "meaning_zh": "像...一樣，作為"
+        },
+        {
+          "no": 3,
+          "word": "because",
+          "part_of_speech": "conj.",
+          "meaning_zh": "因為"
+        },
+        {
+          "no": 4,
+          "word": "but",
+          "part_of_speech": "conj.",
+          "meaning_zh": "但是"
+        },
+        {
+          "no": 5,
+          "word": "if",
+          "part_of_speech": "conj.",
+          "meaning_zh": "如果"
+        },
+        {
+          "no": 6,
+          "word": "or",
+          "part_of_speech": "conj.",
+          "meaning_zh": "或者"
+        },
+        {
+          "no": 7,
+          "word": "while",
+          "part_of_speech": "conj.",
+          "meaning_zh": "當......的時候"
+        }
+      ]
+    },
+    {
+      "category_zh": "洲別",
+      "category_en": "Continents",
+      "count": 7,
+      "entries": [
+        {
+          "no": 1,
+          "word": "world",
+          "part_of_speech": "n.",
+          "meaning_zh": "世界"
+        },
+        {
+          "no": 2,
+          "word": "Australia",
+          "part_of_speech": "n.",
+          "meaning_zh": "澳洲"
+        },
+        {
+          "no": 3,
+          "word": "Africa",
+          "part_of_speech": "n.",
+          "meaning_zh": "非洲"
+        },
+        {
+          "no": 4,
+          "word": "Asia",
+          "part_of_speech": "n.",
+          "meaning_zh": "亞洲"
+        },
+        {
+          "no": 5,
+          "word": "Asian",
+          "part_of_speech": "adj.",
+          "meaning_zh": "亞洲的；亞洲人的"
+        },
+        {
+          "no": 6,
+          "word": "Europe",
+          "part_of_speech": "n.",
+          "meaning_zh": "歐洲"
+        },
+        {
+          "no": 7,
+          "word": "America",
+          "part_of_speech": "n.",
+          "meaning_zh": "美國，美洲"
+        }
+      ]
+    },
+    {
+      "category_zh": "國家",
+      "category_en": "Country",
+      "count": 12,
+      "entries": [
+        {
+          "no": 1,
+          "word": "France",
+          "part_of_speech": "n.",
+          "meaning_zh": "法國"
+        },
+        {
+          "no": 2,
+          "word": "Germany",
+          "part_of_speech": "n.",
+          "meaning_zh": "德國"
+        },
+        {
+          "no": 3,
+          "word": "Japan",
+          "part_of_speech": "n.",
+          "meaning_zh": "日本"
+        },
+        {
+          "no": 4,
+          "word": "India",
+          "part_of_speech": "n.",
+          "meaning_zh": "印度"
+        },
+        {
+          "no": 5,
+          "word": "UK (United Kingdom)",
+          "part_of_speech": "abbr.",
+          "meaning_zh": "英國"
+        },
+        {
+          "no": 6,
+          "word": "U.S.(United States)",
+          "part_of_speech": "abbr.",
+          "meaning_zh": "美國"
+        },
+        {
+          "no": 7,
+          "word": "Britain",
+          "part_of_speech": "n.",
+          "meaning_zh": "英國"
+        },
+        {
+          "no": 8,
+          "word": "China",
+          "part_of_speech": "n.",
+          "meaning_zh": "中國"
+        },
+        {
+          "no": 9,
+          "word": "Canada",
+          "part_of_speech": "n.",
+          "meaning_zh": "加拿大"
+        },
+        {
+          "no": 10,
+          "word": "England",
+          "part_of_speech": "n.",
+          "meaning_zh": "英格蘭"
+        },
+        {
+          "no": 11,
+          "word": "Russia",
+          "part_of_speech": "n.",
+          "meaning_zh": "俄羅斯"
+        },
+        {
+          "no": 12,
+          "word": "country",
+          "part_of_speech": "n.",
+          "meaning_zh": "國家"
+        }
+      ]
+    },
+    {
+      "category_zh": "人民/語言",
+      "category_en": "People / Language",
+      "count": 12,
+      "entries": [
+        {
+          "no": 1,
+          "word": "French",
+          "part_of_speech": "adj.; n.",
+          "meaning_zh": "法國的；法國人"
+        },
+        {
+          "no": 2,
+          "word": "German",
+          "part_of_speech": "adj.; n.",
+          "meaning_zh": "德國的；德國人"
+        },
+        {
+          "no": 3,
+          "word": "Indian",
+          "part_of_speech": "adj.",
+          "meaning_zh": "印度的；印第安人的"
+        },
+        {
+          "no": 4,
+          "word": "Japanese",
+          "part_of_speech": "n.; adj.",
+          "meaning_zh": "日本人,日語；日本的"
+        },
+        {
+          "no": 5,
+          "word": "Russian",
+          "part_of_speech": "adj.; n.",
+          "meaning_zh": "俄國的; 俄國人（語）"
+        },
+        {
+          "no": 6,
+          "word": "American",
+          "part_of_speech": "n.",
+          "meaning_zh": "美國人"
+        },
+        {
+          "no": 7,
+          "word": "Australian",
+          "part_of_speech": "adj.",
+          "meaning_zh": "澳洲(人)的"
+        },
+        {
+          "no": 8,
+          "word": "British",
+          "part_of_speech": "adj.",
+          "meaning_zh": "英國(人)的"
+        },
+        {
+          "no": 9,
+          "word": "Chinese",
+          "part_of_speech": "adj.; n.",
+          "meaning_zh": "中國的；中文"
+        },
+        {
+          "no": 10,
+          "word": "Canadian",
+          "part_of_speech": "adj.",
+          "meaning_zh": "加拿大（人）的"
+        },
+        {
+          "no": 11,
+          "word": "English",
+          "part_of_speech": "n.& adj.",
+          "meaning_zh": "英國(的)；英語"
+        },
+        {
+          "no": 12,
+          "word": "African",
+          "part_of_speech": "adj.",
+          "meaning_zh": "非洲的，非洲人的"
+        }
+      ]
+    },
+    {
+      "category_zh": "名詞",
+      "category_en": "Noun",
+      "count": 58,
+      "entries": [
+        {
+          "no": 1,
+          "word": "pocket",
+          "part_of_speech": "n.",
+          "meaning_zh": "口袋"
+        },
+        {
+          "no": 2,
+          "word": "place",
+          "part_of_speech": "n.",
+          "meaning_zh": "地方，地點"
+        },
+        {
+          "no": 3,
+          "word": "radio",
+          "part_of_speech": "n.",
+          "meaning_zh": "收音機"
+        },
+        {
+          "no": 4,
+          "word": "reader",
+          "part_of_speech": "n.",
+          "meaning_zh": "讀者"
+        },
+        {
+          "no": 5,
+          "word": "reading",
+          "part_of_speech": "n.",
+          "meaning_zh": "閱讀"
+        },
+        {
+          "no": 6,
+          "word": "closet",
+          "part_of_speech": "n.",
+          "meaning_zh": "壁櫥"
+        },
+        {
+          "no": 7,
+          "word": "road",
+          "part_of_speech": "n.",
+          "meaning_zh": "道路"
+        },
+        {
+          "no": 8,
+          "word": "roof",
+          "part_of_speech": "n.",
+          "meaning_zh": "屋頂"
+        },
+        {
+          "no": 9,
+          "word": "row",
+          "part_of_speech": "n.",
+          "meaning_zh": "行，排"
+        },
+        {
+          "no": 10,
+          "word": "ring",
+          "part_of_speech": "v.; n.",
+          "meaning_zh": "按鈴；鈴聲"
+        },
+        {
+          "no": 11,
+          "word": "set",
+          "part_of_speech": "n.",
+          "meaning_zh": "一套"
+        },
+        {
+          "no": 12,
+          "word": "seat",
+          "part_of_speech": "n.; v.",
+          "meaning_zh": "座位; 使就座"
+        },
+        {
+          "no": 13,
+          "word": "sauce",
+          "part_of_speech": "n.",
+          "meaning_zh": "調味汁, 醬汁"
+        },
+        {
+          "no": 14,
+          "word": "salt",
+          "part_of_speech": "n.",
+          "meaning_zh": "鹽"
+        },
+        {
+          "no": 15,
+          "word": "sheet",
+          "part_of_speech": "n.",
+          "meaning_zh": "床單"
+        },
+        {
+          "no": 16,
+          "word": "side",
+          "part_of_speech": "n.",
+          "meaning_zh": "一側"
+        },
+        {
+          "no": 17,
+          "word": "sign",
+          "part_of_speech": "n.",
+          "meaning_zh": "符號"
+        },
+        {
+          "no": 18,
+          "word": "sport",
+          "part_of_speech": "n.",
+          "meaning_zh": "體育運動"
+        },
+        {
+          "no": 19,
+          "word": "stair",
+          "part_of_speech": "n.",
+          "meaning_zh": "臺階"
+        },
+        {
+          "no": 20,
+          "word": "stamp",
+          "part_of_speech": "n.",
+          "meaning_zh": "郵票"
+        },
+        {
+          "no": 21,
+          "word": "step",
+          "part_of_speech": "n.",
+          "meaning_zh": "步驟"
+        },
+        {
+          "no": 22,
+          "word": "storm",
+          "part_of_speech": "n.",
+          "meaning_zh": "暴風雨"
+        },
+        {
+          "no": 23,
+          "word": "swimming",
+          "part_of_speech": "n.",
+          "meaning_zh": "游泳"
+        },
+        {
+          "no": 24,
+          "word": "tail",
+          "part_of_speech": "n.",
+          "meaning_zh": "尾巴"
+        },
+        {
+          "no": 25,
+          "word": "taxi",
+          "part_of_speech": "n.",
+          "meaning_zh": "計程車"
+        },
+        {
+          "no": 26,
+          "word": "shampoo",
+          "part_of_speech": "n.",
+          "meaning_zh": "洗髮精"
+        },
+        {
+          "no": 27,
+          "word": "choice",
+          "part_of_speech": "n.",
+          "meaning_zh": "選擇"
+        },
+        {
+          "no": 28,
+          "word": "team",
+          "part_of_speech": "n.",
+          "meaning_zh": "團隊"
+        },
+        {
+          "no": 29,
+          "word": "telephone",
+          "part_of_speech": "n.",
+          "meaning_zh": "手機"
+        },
+        {
+          "no": 30,
+          "word": "television",
+          "part_of_speech": "n.",
+          "meaning_zh": "電視"
+        },
+        {
+          "no": 31,
+          "word": "tennis",
+          "part_of_speech": "n.",
+          "meaning_zh": "網球"
+        },
+        {
+          "no": 32,
+          "word": "toilet",
+          "part_of_speech": "n.",
+          "meaning_zh": "廁所"
+        },
+        {
+          "no": 33,
+          "word": "top",
+          "part_of_speech": "n.",
+          "meaning_zh": "頂端"
+        },
+        {
+          "no": 34,
+          "word": "towel",
+          "part_of_speech": "n.",
+          "meaning_zh": "毛巾"
+        },
+        {
+          "no": 35,
+          "word": "town",
+          "part_of_speech": "n.",
+          "meaning_zh": "鎮"
+        },
+        {
+          "no": 36,
+          "word": "wave",
+          "part_of_speech": "n.",
+          "meaning_zh": "波浪"
+        },
+        {
+          "no": 37,
+          "word": "weekend",
+          "part_of_speech": "n.",
+          "meaning_zh": "週末"
+        },
+        {
+          "no": 38,
+          "word": "bridge",
+          "part_of_speech": "n.",
+          "meaning_zh": "橋"
+        },
+        {
+          "no": 39,
+          "word": "brush",
+          "part_of_speech": "n.",
+          "meaning_zh": "刷子"
+        },
+        {
+          "no": 40,
+          "word": "basket",
+          "part_of_speech": "n.",
+          "meaning_zh": "籃子"
+        },
+        {
+          "no": 41,
+          "word": "bookcase",
+          "part_of_speech": "n.",
+          "meaning_zh": "書櫃"
+        },
+        {
+          "no": 42,
+          "word": "season",
+          "part_of_speech": "n.",
+          "meaning_zh": "時期；季節"
+        },
+        {
+          "no": 43,
+          "word": "window",
+          "part_of_speech": "n.",
+          "meaning_zh": "窗戶"
+        },
+        {
+          "no": 44,
+          "word": "airport",
+          "part_of_speech": "n.",
+          "meaning_zh": "機場"
+        },
+        {
+          "no": 45,
+          "word": "airplane",
+          "part_of_speech": "n.",
+          "meaning_zh": "飛機"
+        },
+        {
+          "no": 46,
+          "word": "autumn",
+          "part_of_speech": "n.",
+          "meaning_zh": "秋天"
+        },
+        {
+          "no": 47,
+          "word": "calendar",
+          "part_of_speech": "n.",
+          "meaning_zh": "日曆"
+        },
+        {
+          "no": 48,
+          "word": "dish",
+          "part_of_speech": "n.",
+          "meaning_zh": "盤；一道菜"
+        },
+        {
+          "no": 49,
+          "word": "history",
+          "part_of_speech": "n.",
+          "meaning_zh": "歷史"
+        },
+        {
+          "no": 50,
+          "word": "hospital",
+          "part_of_speech": "n.",
+          "meaning_zh": "醫院"
+        },
+        {
+          "no": 51,
+          "word": "hour",
+          "part_of_speech": "n.",
+          "meaning_zh": "小時"
+        },
+        {
+          "no": 52,
+          "word": "husband",
+          "part_of_speech": "n.",
+          "meaning_zh": "丈夫"
+        },
+        {
+          "no": 53,
+          "word": "hotel",
+          "part_of_speech": "n.",
+          "meaning_zh": "旅館，飯店"
+        },
+        {
+          "no": 54,
+          "word": "newspaper",
+          "part_of_speech": "n.",
+          "meaning_zh": "報紙"
+        },
+        {
+          "no": 55,
+          "word": "neighbour",
+          "part_of_speech": "n.",
+          "meaning_zh": "鄰居"
+        },
+        {
+          "no": 56,
+          "word": "net",
+          "part_of_speech": "n.",
+          "meaning_zh": "網"
+        },
+        {
+          "no": 57,
+          "word": "nest",
+          "part_of_speech": "n.",
+          "meaning_zh": "(鳥)窩"
+        },
+        {
+          "no": 58,
+          "word": "noon",
+          "part_of_speech": "n.",
+          "meaning_zh": "中午"
+        }
+      ]
+    }
+  ]
+}
