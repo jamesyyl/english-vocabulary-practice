@@ -2,7 +2,7 @@
 
 A lightweight English vocabulary practice app for elementary school learners. It is a static front-end project: no login, no backend, no build step, and no dev server required.
 
-- Current version: `0.3.0`
+- Current version: `0.3.1`
 - Live demo: <https://jamesyyl.github.io/english-vocabulary-practice/>
 - Vocabulary set: G6 vocabulary p1-p2, 230 words
 - Runtime: browser only
@@ -121,19 +121,25 @@ audio/g6-p1-p2/words/verbs-1-agree.mp3
 audio/g6-p1-p2/sentences/verbs-1-agree.mp3
 ```
 
-Generate a small Google Translate TTS sample set:
+Generate all Google Translate TTS audio files:
+
+```powershell
+node scripts/generate-audio-samples.js --all
+```
+
+Generate a smaller sample set:
 
 ```powershell
 node scripts/generate-audio-samples.js --limit=5
 ```
 
-Regenerate existing sample files:
+Regenerate existing files:
 
 ```powershell
-node scripts/generate-audio-samples.js --limit=5 --force
+node scripts/generate-audio-samples.js --all --force
 ```
 
-Google Translate TTS is used as an unofficial sample source. It is suitable for trying this project locally, but it can change, rate-limit, or fail without notice. For a larger or more reliable audio library, use a formal TTS provider and keep the same local MP3 path convention.
+The generator is resumable: existing valid MP3 files are skipped unless `--force` is used. Google Translate TTS is used as an unofficial source. It is suitable for trying this project locally, but it can change, rate-limit, or fail without notice. For a more reliable audio library, use a formal TTS provider and keep the same local MP3 path convention.
 
 ## Progress Data
 
@@ -269,7 +275,7 @@ Near-term work is tracked in `TODO.md`.
 
 Planned direction:
 
-- `0.3.0`: add static audio fallback architecture.
+- `0.3.1`: complete committed MP3 coverage for the current 230-word vocabulary set.
 - `0.4.0`: design multi-vocabulary-set support.
 
 ## Current Limitations
@@ -278,7 +284,6 @@ Planned direction:
 - No cloud sync.
 - No admin dashboard.
 - Progress is stored only on the same device and browser.
-- Only the first 5 words currently include committed MP3 audio samples.
 - Missing MP3 audio falls back to the browser Web Speech API.
 - Quiz mode is not implemented yet.
 

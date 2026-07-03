@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.3.1 - 2026-07-03
+
+### Added
+
+- Added complete committed MP3 coverage for the current 230-word vocabulary set.
+- Added word MP3 files and example sentence MP3 files for every vocabulary entry.
+
+### Changed
+
+- Improved `scripts/generate-audio-samples.js` with full-library generation, resumable skips, retry handling, configurable delay, and failure reporting.
+- Updated release verification to require all 460 MP3 files.
+- Updated home screen version metadata.
+
+### Verification
+
+- `node scripts/verify-release.js`
+
 ## 0.3.0 - 2026-07-03
 
 ### Added

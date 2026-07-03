@@ -93,6 +93,19 @@
 - [x] 沒有音檔的字仍可用 Web Speech API 發音。
 - [x] 音檔載入失敗不阻塞練習流程。
 
+### 0.3.1 完整音檔覆蓋
+
+- [x] 強化 `scripts/generate-audio-samples.js`，支援 `--all`、可續跑跳過、重試、延遲與失敗清單。
+- [x] 產生目前 230 個單字的單字 MP3。
+- [x] 產生目前 230 個單字的例句 MP3。
+- [x] 將 release verification 升級為檢查全部 460 個 MP3。
+
+驗收：
+
+- [x] `audio/g6-p1-p2/words/` 與 `audio/g6-p1-p2/sentences/` 合計 460 個 MP3。
+- [x] 全部音檔大小大於 500 bytes。
+- [x] 不改練習 UI 與熟練度流程。
+
 ### 0.4.0 多字庫資料模型設計
 
 - [ ] 定義 `vocabularySetId`、字庫 metadata、匯入格式與資料驗證規則。

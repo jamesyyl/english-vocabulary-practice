@@ -64,7 +64,7 @@ function verifyAudioSamples() {
   const sandbox = { window: {} };
   vm.runInNewContext(code, sandbox, { filename: "js/vocabulary.js" });
 
-  const rows = sandbox.window.VOCABULARY_DATA.slice(0, 5);
+  const rows = sandbox.window.VOCABULARY_DATA;
   const missing = [];
   rows.forEach(function (entry) {
     ["words", "sentences"].forEach(function (folder) {
@@ -76,10 +76,10 @@ function verifyAudioSamples() {
   });
 
   if (missing.length > 0) {
-    throw new Error(`Audio sample verification failed: ${missing.join(", ")}`);
+    throw new Error(`Audio verification failed: ${missing.join(", ")}`);
   }
 
-  console.log("Audio sample verification passed: first 5 words and example sentences have MP3 files.");
+  console.log(`Audio verification passed: ${rows.length} words and ${rows.length} example sentences have MP3 files.`);
 }
 
 main();
