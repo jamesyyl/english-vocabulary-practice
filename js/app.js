@@ -25,6 +25,7 @@
 
   const vocabulary = window.VOCABULARY_DATA || [];
   const STORAGE_KEY = "englishVocabularyPracticeProgress:v1";
+  const PROGRESS_SCHEMA_VERSION = 2;
   const MISSION_SIZE_OPTIONS = [10, 20, 30];
   const state = {
     categories: [],
@@ -34,9 +35,12 @@
     currentIndex: 0,
     knownCount: 0,
     unknownCount: 0,
+    roundResults: [],
     currentRoundStartIndex: 0,
     progress: {
-      categories: {}
+      schemaVersion: PROGRESS_SCHEMA_VERSION,
+      categories: {},
+      words: {}
     }
   };
 
@@ -98,6 +102,7 @@
     state.currentIndex = 0;
     state.knownCount = 0;
     state.unknownCount = 0;
+    state.roundResults = [];
     updatePracticeTitle();
     renderCurrentWord();
     showScreen(practiceScreen);
@@ -133,9 +138,7 @@
   }
 
   function resetProgress() {
-    state.progress = {
-      categories: {}
-    };
+    state.progress = createEmptyProgress();
     saveProgress();
     renderCategoryList();
     renderMissionOptions();
@@ -292,6 +295,14 @@
   }
 
   function handleAnswer(result) {
+    const current = state.roundWords[state.currentIndex];
+    if (current) {
+      state.roundResults.push({
+        wordId: current.wordId,
+        result
+      });
+    }
+
     if (result === "known") {
       state.knownCount += 1;
     } else {
@@ -387,6 +398,7 @@
         completedCount: nextStartIndex,
         savedAt: new Date().toISOString()
       };
+      applyRoundMasteryResults(new Date().toISOString());
       saveProgress();
     }
 
@@ -484,31 +496,144 @@
     try {
       const rawValue = window.localStorage.getItem(STORAGE_KEY);
       if (!rawValue) {
-        return { categories: {} };
+        return createEmptyProgress();
       }
 
       const saved = JSON.parse(rawValue);
       if (saved && saved.categories && typeof saved.categories === "object") {
-        return {
-          categories: saved.categories
-        };
+        return migrateProgress(saved);
       }
     } catch (error) {
-      return { categories: {} };
+      return createEmptyProgress();
     }
 
-    return { categories: {} };
+    return createEmptyProgress();
   }
 
   function saveProgress() {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        schemaVersion: PROGRESS_SCHEMA_VERSION,
         categories: state.progress.categories,
+        words: state.progress.words,
         savedAt: new Date().toISOString()
       }));
     } catch (error) {
       progressStatusEl.textContent = "此瀏覽器無法保存進度；下次打開可能需要重新開始。";
     }
+  }
+
+  function createEmptyProgress() {
+    return {
+      schemaVersion: PROGRESS_SCHEMA_VERSION,
+      categories: {},
+      words: {}
+    };
+  }
+
+  function migrateProgress(saved) {
+    if (saved.schemaVersion === PROGRESS_SCHEMA_VERSION) {
+      return {
+        schemaVersion: PROGRESS_SCHEMA_VERSION,
+        categories: saved.categories || {},
+        words: saved.words && typeof saved.words === "object" ? saved.words : {}
+      };
+    }
+
+    return {
+      schemaVersion: PROGRESS_SCHEMA_VERSION,
+      categories: saved.categories || {},
+      words: {}
+    };
+  }
+
+  function applyRoundMasteryResults(timestamp) {
+    state.roundResults.forEach(function (answer) {
+      if (!answer.wordId) {
+        return;
+      }
+
+      const currentRecord = normalizeWordProgress(state.progress.words[answer.wordId]);
+      state.progress.words[answer.wordId] = updateWordProgress(currentRecord, answer.result, timestamp);
+    });
+  }
+
+  function normalizeWordProgress(record) {
+    const saved = record && typeof record === "object" ? record : {};
+    return {
+      knownCount: normalizeCount(saved.knownCount),
+      unknownCount: normalizeCount(saved.unknownCount),
+      lastPracticedAt: typeof saved.lastPracticedAt === "string" ? saved.lastPracticedAt : null,
+      lastResult: saved.lastResult === "known" || saved.lastResult === "unknown" ? saved.lastResult : null,
+      streakKnown: normalizeCount(saved.streakKnown),
+      masteryLevel: normalizeMasteryLevel(saved.masteryLevel),
+      nextReviewAt: typeof saved.nextReviewAt === "string" ? saved.nextReviewAt : null
+    };
+  }
+
+  function updateWordProgress(record, result, timestamp) {
+    const isKnown = result === "known";
+    const nextKnownCount = record.knownCount + (isKnown ? 1 : 0);
+    const nextUnknownCount = record.unknownCount + (isKnown ? 0 : 1);
+    const nextStreakKnown = isKnown ? record.streakKnown + 1 : 0;
+    const nextMasteryLevel = calculateMasteryLevel(record.masteryLevel, isKnown, nextStreakKnown);
+
+    return {
+      knownCount: nextKnownCount,
+      unknownCount: nextUnknownCount,
+      lastPracticedAt: timestamp,
+      lastResult: result,
+      streakKnown: nextStreakKnown,
+      masteryLevel: nextMasteryLevel,
+      nextReviewAt: calculateNextReviewAt(timestamp, nextMasteryLevel, isKnown)
+    };
+  }
+
+  function calculateMasteryLevel(currentLevel, isKnown, streakKnown) {
+    if (!isKnown) {
+      return Math.max(currentLevel - 1, 0);
+    }
+
+    if (currentLevel === 0) {
+      return 1;
+    }
+
+    if (streakKnown >= 2 && currentLevel < 3) {
+      return currentLevel + 1;
+    }
+
+    if (streakKnown >= 3 && currentLevel < 4) {
+      return currentLevel + 1;
+    }
+
+    return currentLevel;
+  }
+
+  function calculateNextReviewAt(timestamp, masteryLevel, isKnown) {
+    const daysByLevel = isKnown
+      ? [1, 1, 3, 7, 14]
+      : [1, 1, 1, 2, 3];
+    const baseDate = new Date(timestamp);
+    baseDate.setDate(baseDate.getDate() + daysByLevel[masteryLevel]);
+    return baseDate.toISOString();
+  }
+
+  function normalizeCount(value) {
+    const numberValue = Number(value);
+    if (!Number.isInteger(numberValue) || numberValue < 0) {
+      return 0;
+    }
+
+    return numberValue;
+  }
+
+  function normalizeMasteryLevel(value) {
+    const numberValue = Number(value);
+    if (!Number.isInteger(numberValue) || numberValue < 0) {
+      return 0;
+    }
+
+    return Math.min(numberValue, 4);
   }
 
   function showScreen(screenToShow) {

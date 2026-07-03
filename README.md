@@ -2,7 +2,7 @@
 
 A lightweight English vocabulary practice app for elementary school learners. It is a static front-end project: no login, no backend, no build step, and no dev server required.
 
-- Current version: `0.1.1`
+- Current version: `0.2.0`
 - Live demo: <https://jamesyyl.github.io/english-vocabulary-practice/>
 - Vocabulary set: G6 vocabulary p1-p2, 230 words
 - Runtime: browser only
@@ -17,6 +17,7 @@ A lightweight English vocabulary practice app for elementary school learners. It
 - See round results after each mission.
 - Continue the next mission, repeat the current mission, or return home.
 - Save per-category progress in `localStorage`.
+- Track word-level mastery data locally for future review and quiz modes.
 - Reset local progress from the home screen.
 
 ## Quick Start
@@ -83,6 +84,8 @@ Every generated vocabulary entry must include:
 - `chineseMeaning`
 - `categoryZh`
 - `categoryEn`
+- `vocabularySetId`
+- `wordId`
 - `englishDefinition`
 - `exampleSentence`
 - `phrase`
@@ -95,6 +98,34 @@ Validation rules:
 - Words must not be duplicated.
 - Each example sentence must contain at least 7 English words.
 - Original source fields must remain consistent with `data/G6_vocabulary_p1-p2.original.json`.
+- Every word must have a unique `wordId`.
+
+## Progress Data
+
+Progress is stored in `localStorage` under:
+
+```text
+englishVocabularyPracticeProgress:v1
+```
+
+The key name is kept for backward compatibility, while the stored payload now uses `schemaVersion: 2`.
+
+Stored progress includes:
+
+- `categories`: per-category mission progress.
+- `words`: per-word mastery records keyed by stable `wordId`.
+
+Each word mastery record stores:
+
+- `knownCount`: total times marked as known.
+- `unknownCount`: total times marked as unknown.
+- `lastPracticedAt`: last practice timestamp.
+- `lastResult`: last answer result, either `known` or `unknown`.
+- `streakKnown`: current consecutive known streak.
+- `masteryLevel`: simple `0-4` mastery level.
+- `nextReviewAt`: suggested next review timestamp.
+
+Existing v1 category progress is migrated automatically to schema v2. The current UI still keeps the same category mission flow; review UI is planned for a later release.
 
 ## Verification
 
@@ -175,8 +206,8 @@ When changing `css/style.css`, `js/app.js`, or `js/vocabulary.js`, update the ve
 
 ```html
 <link rel="stylesheet" href="css/style.css?v=20260703-home-meta">
-<script src="js/vocabulary.js?v=20260702-category-mission"></script>
-<script src="js/app.js?v=20260702-category-mission"></script>
+<script src="js/vocabulary.js?v=20260703-mastery-model"></script>
+<script src="js/app.js?v=20260703-mastery-model"></script>
 ```
 
 ## Roadmap
@@ -185,8 +216,6 @@ Near-term work is tracked in `TODO.md`.
 
 Planned direction:
 
-- `0.1.1`: add smoke tests, release verification, and a cleaner release checklist.
-- `0.2.0`: add word-level mastery records while preserving the current user flow.
 - `0.2.1`: add a minimal review mode.
 - `0.3.0`: add static audio fallback architecture.
 - `0.4.0`: design multi-vocabulary-set support.
@@ -198,7 +227,7 @@ Planned direction:
 - No admin dashboard.
 - Progress is stored only on the same device and browser.
 - Pronunciation currently depends on the browser Web Speech API.
-- Word-level review history is not implemented yet.
+- Review mode and quiz mode are not implemented yet.
 
 ## Changelog
 

@@ -4,6 +4,7 @@ const vm = require("vm");
 
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 const STORAGE_KEY = "englishVocabularyPracticeProgress:v1";
+const FIRST_WORD_ID = "g6-p1-p2:verbs:1:agree";
 const ELEMENT_IDS = [
   "data-status",
   "word-card",
@@ -262,8 +263,20 @@ function completeFirstRound() {
   assert(harness.elements["result-unknown"].textContent === "0", "Expected unknown count to be 0.");
 
   const saved = JSON.parse(harness.storage.getItem(STORAGE_KEY));
+  assert(saved.schemaVersion === 2, "Expected saved progress schemaVersion to be 2.");
   assert(saved.categories.Verbs.completedCount === 10, "Expected Verbs completedCount to be saved as 10.");
   assert(saved.categories.Verbs.nextStartIndex === 10, "Expected Verbs nextStartIndex to be saved as 10.");
+  assert(Object.keys(saved.words).length === 10, "Expected 10 word mastery records after first round.");
+
+  const firstWord = saved.words[FIRST_WORD_ID];
+  assert(firstWord, `Expected mastery record for ${FIRST_WORD_ID}.`);
+  assert(firstWord.knownCount === 1, "Expected first word knownCount to be 1.");
+  assert(firstWord.unknownCount === 0, "Expected first word unknownCount to be 0.");
+  assert(firstWord.lastResult === "known", "Expected first word lastResult to be known.");
+  assert(firstWord.streakKnown === 1, "Expected first word streakKnown to be 1.");
+  assert(firstWord.masteryLevel === 1, "Expected first word masteryLevel to be 1 after first known answer.");
+  assert(typeof firstWord.lastPracticedAt === "string", "Expected first word lastPracticedAt to be saved.");
+  assert(typeof firstWord.nextReviewAt === "string", "Expected first word nextReviewAt to be saved.");
 
   return harness.storage.snapshot();
 }
@@ -282,14 +295,50 @@ function resumeAndReset(savedStorage) {
   harness.elements["reset-progress"].click();
 
   const savedAfterReset = JSON.parse(harness.storage.getItem(STORAGE_KEY));
+  assert(savedAfterReset.schemaVersion === 2, "Expected reset progress schemaVersion to stay 2.");
   assert(Object.keys(savedAfterReset.categories).length === 0, "Expected reset to clear category progress.");
+  assert(Object.keys(savedAfterReset.words).length === 0, "Expected reset to clear word progress.");
   assert(harness.elements["reset-progress"].classList.contains("is-hidden"), "Expected reset button to hide after clearing progress.");
+}
+
+function migrateLegacyProgress() {
+  const legacyStorage = {};
+  legacyStorage[STORAGE_KEY] = JSON.stringify({
+    categories: {
+      Verbs: {
+        nextStartIndex: 10,
+        completedCount: 10,
+        savedAt: "2026-07-03T00:00:00.000Z"
+      }
+    },
+    savedAt: "2026-07-03T00:00:00.000Z"
+  });
+
+  const harness = createHarness(legacyStorage);
+  const categoryButtons = harness.elements["category-list"].querySelectorAll(".category-card");
+  categoryButtons[0].click();
+
+  assert(
+    harness.elements["selected-category-summary"].textContent.includes("下一題從第 11 個字開始"),
+    "Expected legacy category progress to migrate and resume from the 11th word."
+  );
+
+  harness.elements["start-practice"].click();
+  for (let index = 0; index < 10; index += 1) {
+    harness.elements["mark-unknown"].click();
+  }
+
+  const migrated = JSON.parse(harness.storage.getItem(STORAGE_KEY));
+  assert(migrated.schemaVersion === 2, "Expected legacy progress to save as schemaVersion 2.");
+  assert(migrated.categories.Verbs.nextStartIndex === 20, "Expected migrated progress to continue from old nextStartIndex.");
+  assert(migrated.words["g6-p1-p2:verbs:11:cover"].unknownCount === 1, "Expected migrated progress to create word mastery records.");
 }
 
 function main() {
   const savedStorage = completeFirstRound();
   resumeAndReset(savedStorage);
-  console.log("Smoke test passed: category mission, saved progress, resume, and reset.");
+  migrateLegacyProgress();
+  console.log("Smoke test passed: category mission, schema v2 mastery, legacy migration, resume, and reset.");
 }
 
 main();

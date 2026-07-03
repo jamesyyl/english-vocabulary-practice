@@ -36,21 +36,25 @@ function verifyVocabularyData() {
 
   const rows = sandbox.window.VOCABULARY_DATA;
   const missing = rows.filter(function (entry) {
-    return !entry.englishDefinition || !entry.exampleSentence || !entry.phrase || !entry.phonicsHint;
+    return !entry.vocabularySetId || !entry.wordId || !entry.englishDefinition || !entry.exampleSentence || !entry.phrase || !entry.phonicsHint;
   });
   const shortExamples = rows.filter(function (entry) {
     return String(entry.exampleSentence).split(/[^A-Za-z']+/).filter(Boolean).length < 7;
   });
+  const wordIds = new Set(rows.map(function (entry) {
+    return entry.wordId;
+  }));
 
-  if (rows.length !== 230 || missing.length !== 0 || shortExamples.length !== 0) {
+  if (rows.length !== 230 || missing.length !== 0 || shortExamples.length !== 0 || wordIds.size !== rows.length) {
     throw new Error(`Vocabulary verification failed: ${JSON.stringify({
       total: rows.length,
       missing: missing.length,
-      shortExamples: shortExamples.length
+      shortExamples: shortExamples.length,
+      uniqueWordIds: wordIds.size
     })}`);
   }
 
-  console.log("Vocabulary verification passed: 230 words, 0 missing fields, 0 short examples.");
+  console.log("Vocabulary verification passed: 230 words, 0 missing fields, 0 short examples, unique word IDs.");
 }
 
 main();

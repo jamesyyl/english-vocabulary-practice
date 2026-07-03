@@ -6,7 +6,7 @@
 
 - 目前線上與本地架構是純前端靜態頁：`index.html`、`css/style.css`、`js/app.js`、`js/vocabulary.js`。
 - 字庫來源維護在 `data/vocabulary.enriched.json`，再由 `scripts/generate-vocabulary-js.js` 產生 `js/vocabulary.js`。
-- 目前進度存在 `localStorage` 的 `englishVocabularyPracticeProgress:v1`，粒度是每個分類的 `nextStartIndex` / `completedCount`。
+- 目前進度存在 `localStorage` 的 `englishVocabularyPracticeProgress:v1`，payload 已升級為 `schemaVersion: 2`，包含分類進度與 per-word mastery records。
 - README 目前只有一個後續候選：設計單字級錯題 / 複習紀錄。
 
 ## 架構檢視
@@ -57,16 +57,16 @@
 
 ### 0.2.0 單字級熟練度資料模型
 
-- [ ] 在儲存資料中加入 `schemaVersion`。
-- [ ] 新增 per-word mastery record，建議欄位：`knownCount`、`unknownCount`、`lastPracticedAt`、`lastResult`、`streakKnown`、`masteryLevel`、`nextReviewAt`。
-- [ ] 實作 v1 到 v2 遷移：保留分類 `nextStartIndex`，新增空的單字紀錄。
-- [ ] 完成一輪時同步更新單字級紀錄，但 UI 仍維持目前結算頁。
+- [x] 在儲存資料中加入 `schemaVersion`。
+- [x] 新增 per-word mastery record，建議欄位：`knownCount`、`unknownCount`、`lastPracticedAt`、`lastResult`、`streakKnown`、`masteryLevel`、`nextReviewAt`。
+- [x] 實作 v1 到 v2 遷移：保留分類 `nextStartIndex`，新增空的單字紀錄。
+- [x] 完成一輪時同步更新單字級紀錄，但 UI 仍維持目前結算頁。
 
 驗收：
 
-- [ ] 舊版 v1 進度不會消失。
-- [ ] 使用者完成一輪後仍能照原方式繼續下一輪。
-- [ ] reset progress 能清除 v2 狀態。
+- [x] 舊版 v1 進度不會消失。
+- [x] 使用者完成一輪後仍能照原方式繼續下一輪。
+- [x] reset progress 能清除 v2 狀態。
 
 ### 0.2.1 複習入口最小版
 

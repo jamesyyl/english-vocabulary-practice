@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.2.0 - 2026-07-03
+
+### Added
+
+- Added stable `vocabularySetId` and `wordId` fields to generated vocabulary entries.
+- Added schema v2 progress data with per-word mastery records.
+- Added automatic migration from existing v1 category progress to schema v2.
+- Added word mastery updates after each completed round.
+- Expanded smoke tests to cover schema v2 mastery, v1 migration, resume, and reset.
+
+### Changed
+
+- Updated release verification to require unique word IDs.
+- Updated home screen version metadata and script cache-busting query strings.
+
+### Verification
+
+- `node scripts/verify-release.js`
+
 ## 0.1.1 - 2026-07-03
 
 ### Added
