@@ -1,0 +1,295 @@
+const fs = require("fs");
+const path = require("path");
+const vm = require("vm");
+
+const PROJECT_ROOT = path.resolve(__dirname, "..");
+const STORAGE_KEY = "englishVocabularyPracticeProgress:v1";
+const ELEMENT_IDS = [
+  "data-status",
+  "word-card",
+  "home-screen",
+  "practice-screen",
+  "result-screen",
+  "category-list",
+  "selected-category-summary",
+  "mission-options",
+  "start-practice",
+  "practice-title",
+  "progress-label",
+  "speak-word",
+  "mark-known",
+  "mark-unknown",
+  "result-total",
+  "result-known",
+  "result-unknown",
+  "next-round",
+  "repeat-round",
+  "return-home",
+  "result-note",
+  "progress-status",
+  "reset-progress"
+];
+
+class ClassList {
+  constructor(initialValue = "") {
+    this.classes = new Set(initialValue.split(/\s+/).filter(Boolean));
+  }
+
+  add(className) {
+    this.classes.add(className);
+  }
+
+  remove(className) {
+    this.classes.delete(className);
+  }
+
+  contains(className) {
+    return this.classes.has(className);
+  }
+
+  toggle(className, force) {
+    const shouldAdd = force === undefined ? !this.classes.has(className) : Boolean(force);
+    if (shouldAdd) {
+      this.add(className);
+    } else {
+      this.remove(className);
+    }
+    return shouldAdd;
+  }
+
+  toString() {
+    return Array.from(this.classes).join(" ");
+  }
+}
+
+class TestElement {
+  constructor(tagName = "div", options = {}) {
+    this.tagName = tagName.toUpperCase();
+    this.id = options.id || "";
+    this.attributes = {};
+    this.children = [];
+    this.eventListeners = {};
+    this.disabled = false;
+    this._textContent = options.textContent || "";
+    this._innerHTML = "";
+    this.classList = new ClassList(options.className || "");
+  }
+
+  get textContent() {
+    return this._textContent;
+  }
+
+  set textContent(value) {
+    this._textContent = String(value ?? "");
+  }
+
+  get innerHTML() {
+    return this._innerHTML;
+  }
+
+  set innerHTML(value) {
+    this._innerHTML = String(value ?? "");
+    this.children = parseChildButtons(this._innerHTML);
+  }
+
+  addEventListener(type, handler) {
+    if (!this.eventListeners[type]) {
+      this.eventListeners[type] = [];
+    }
+    this.eventListeners[type].push(handler);
+  }
+
+  click() {
+    if (this.disabled) {
+      return;
+    }
+    (this.eventListeners.click || []).forEach(function (handler) {
+      handler.call(this);
+    }, this);
+  }
+
+  setAttribute(name, value) {
+    this.attributes[name] = String(value);
+  }
+
+  getAttribute(name) {
+    return this.attributes[name] ?? null;
+  }
+
+  removeAttribute(name) {
+    delete this.attributes[name];
+  }
+
+  querySelectorAll(selector) {
+    if (!selector.startsWith(".")) {
+      return [];
+    }
+
+    const className = selector.slice(1);
+    return this.children.filter(function (child) {
+      return child.classList.contains(className);
+    });
+  }
+}
+
+function parseChildButtons(html) {
+  const buttons = [];
+  const buttonPattern = /<button\s+([^>]*)>([\s\S]*?)<\/button>/g;
+  let match;
+
+  while ((match = buttonPattern.exec(html)) !== null) {
+    const button = new TestElement("button", {
+      className: readAttribute(match[1], "class") || "",
+      textContent: stripTags(match[2]).replace(/\s+/g, " ").trim()
+    });
+
+    const attributePattern = /([a-zA-Z0-9-:]+)="([^"]*)"/g;
+    let attributeMatch;
+    while ((attributeMatch = attributePattern.exec(match[1])) !== null) {
+      button.setAttribute(attributeMatch[1], decodeHtml(attributeMatch[2]));
+    }
+
+    buttons.push(button);
+  }
+
+  return buttons;
+}
+
+function readAttribute(attributeText, name) {
+  const match = new RegExp(`${name}="([^"]*)"`).exec(attributeText);
+  return match ? decodeHtml(match[1]) : "";
+}
+
+function stripTags(value) {
+  return String(value).replace(/<[^>]*>/g, "");
+}
+
+function decodeHtml(value) {
+  return String(value)
+    .replace(/&quot;/g, "\"")
+    .replace(/&#039;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+}
+
+function createStorage(initialData = {}) {
+  const store = { ...initialData };
+  return {
+    getItem(key) {
+      return Object.prototype.hasOwnProperty.call(store, key) ? store[key] : null;
+    },
+    setItem(key, value) {
+      store[key] = String(value);
+    },
+    removeItem(key) {
+      delete store[key];
+    },
+    clear() {
+      Object.keys(store).forEach(function (key) {
+        delete store[key];
+      });
+    },
+    snapshot() {
+      return { ...store };
+    }
+  };
+}
+
+function createHarness(initialStorage = {}) {
+  const elements = {};
+  ELEMENT_IDS.forEach(function (id) {
+    elements[id] = new TestElement("div", { id });
+  });
+
+  elements["home-screen"].classList = new ClassList("screen home-screen is-active");
+  elements["practice-screen"].classList = new ClassList("screen practice-screen");
+  elements["result-screen"].classList = new ClassList("screen result-screen");
+  elements["start-practice"].disabled = true;
+
+  const storage = createStorage(initialStorage);
+  const sandbox = {
+    window: {
+      localStorage: storage,
+      scrollTo() {},
+      VOCABULARY_DATA: undefined
+    },
+    document: {
+      getElementById(id) {
+        return elements[id] || null;
+      }
+    },
+    console,
+    SpeechSynthesisUtterance: undefined
+  };
+
+  vm.createContext(sandbox);
+  vm.runInContext(readProjectFile("js", "vocabulary.js"), sandbox, { filename: "js/vocabulary.js" });
+  vm.runInContext(readProjectFile("js", "app.js"), sandbox, { filename: "js/app.js" });
+
+  return { elements, storage };
+}
+
+function readProjectFile(...segments) {
+  return fs.readFileSync(path.join(PROJECT_ROOT, ...segments), "utf8");
+}
+
+function assert(condition, message) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+function completeFirstRound() {
+  const harness = createHarness();
+  const categoryButtons = harness.elements["category-list"].querySelectorAll(".category-card");
+  assert(categoryButtons.length > 0, "Expected category cards to render.");
+
+  categoryButtons[0].click();
+  assert(harness.elements["start-practice"].disabled === false, "Expected start button to be enabled after selecting a category.");
+
+  harness.elements["start-practice"].click();
+  assert(harness.elements["practice-screen"].classList.contains("is-active"), "Expected practice screen to be active.");
+  assert(harness.elements["progress-label"].textContent === "1 / 10", "Expected first mission to start at 1 / 10.");
+
+  for (let index = 0; index < 10; index += 1) {
+    harness.elements["mark-known"].click();
+  }
+
+  assert(harness.elements["result-screen"].classList.contains("is-active"), "Expected result screen to be active after 10 answers.");
+  assert(harness.elements["result-total"].textContent === "10", "Expected result total to be 10.");
+  assert(harness.elements["result-known"].textContent === "10", "Expected known count to be 10.");
+  assert(harness.elements["result-unknown"].textContent === "0", "Expected unknown count to be 0.");
+
+  const saved = JSON.parse(harness.storage.getItem(STORAGE_KEY));
+  assert(saved.categories.Verbs.completedCount === 10, "Expected Verbs completedCount to be saved as 10.");
+  assert(saved.categories.Verbs.nextStartIndex === 10, "Expected Verbs nextStartIndex to be saved as 10.");
+
+  return harness.storage.snapshot();
+}
+
+function resumeAndReset(savedStorage) {
+  const harness = createHarness(savedStorage);
+  const categoryButtons = harness.elements["category-list"].querySelectorAll(".category-card");
+  categoryButtons[0].click();
+
+  assert(
+    harness.elements["selected-category-summary"].textContent.includes("下一題從第 11 個字開始"),
+    "Expected saved progress to resume from the 11th word."
+  );
+
+  assert(!harness.elements["reset-progress"].classList.contains("is-hidden"), "Expected reset button to be visible when progress exists.");
+  harness.elements["reset-progress"].click();
+
+  const savedAfterReset = JSON.parse(harness.storage.getItem(STORAGE_KEY));
+  assert(Object.keys(savedAfterReset.categories).length === 0, "Expected reset to clear category progress.");
+  assert(harness.elements["reset-progress"].classList.contains("is-hidden"), "Expected reset button to hide after clearing progress.");
+}
+
+function main() {
+  const savedStorage = completeFirstRound();
+  resumeAndReset(savedStorage);
+  console.log("Smoke test passed: category mission, saved progress, resume, and reset.");
+}
+
+main();

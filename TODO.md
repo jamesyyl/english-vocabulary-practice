@@ -45,14 +45,15 @@
 
 ### 0.1.1 補測試與版本流程
 
-- [ ] 新增無瀏覽器依賴的 Node smoke test，模擬 DOM 與 `localStorage`，覆蓋目前主流程。
-- [ ] 新增 `scripts/verify-release.js` 或 README 指令區塊，集中執行語法檢查、資料檢查與 smoke test。
-- [ ] 在 README 補上「小版本發布檢查清單」。
+- [x] 改寫 README，使其符合常見 GitHub repo 結構：簡介、Demo、Features、Quick Start、Project Structure、Data Workflow、Verification、Deployment、Roadmap、Changelog。
+- [x] 新增無瀏覽器依賴的 Node smoke test，模擬 DOM 與 `localStorage`，覆蓋目前主流程。
+- [x] 新增 `scripts/verify-release.js` 或 README 指令區塊，集中執行語法檢查、資料檢查與 smoke test。
+- [x] 在 README 補上「小版本發布檢查清單」。
 
 驗收：
 
-- [ ] 一條命令可完成主要驗證。
-- [ ] 不改使用者可見流程。
+- [x] 一條命令可完成主要驗證。
+- [x] 不改使用者可見流程。
 
 ### 0.2.0 單字級熟練度資料模型
 

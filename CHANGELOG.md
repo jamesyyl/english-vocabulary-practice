@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.1 - 2026-07-03
+
+### Added
+
+- Added `scripts/smoke-test.js` for a browser-free Node smoke test of the main practice flow.
+- Added `scripts/verify-release.js` as the single release verification command.
+- Added a release checklist to `README.md`.
+
+### Changed
+
+- Rewrote `README.md` into a more standard GitHub repository format.
+
+### Verification
+
+- `node scripts/verify-release.js`
+
 ## 0.1.0 - 2026-07-03
 
 ### Added
