@@ -2,6 +2,8 @@
 
 這是一個給 7 到 12 歲小學生使用的英語單字練習小工具。第一版是純前端靜態網頁，不需要登入帳號，也不需要後端服務。
 
+目前版本：`0.1.0`
+
 ## 快速開始
 
 直接用瀏覽器打開：
@@ -159,6 +161,14 @@ Invoke-WebRequest -Uri "https://jamesyyl.github.io/english-vocabulary-practice/"
 
 版本參數只需要在檔案內容有變動時更新，命名可用日期加功能名。若線上畫面仍像舊版，先硬重新整理瀏覽器；再用無快取方式讀取線上 HTML，確認 `index.html` 已部署到最新版本。
 
+## 版本紀錄
+
+目前穩定基線是 `0.1.0`。詳細內容見：
+
+```text
+CHANGELOG.md
+```
+
 ## 第一版限制
 
 - 不做登入、帳號、會員或多人資料。
@@ -171,3 +181,9 @@ Invoke-WebRequest -Uri "https://jamesyyl.github.io/english-vocabulary-practice/"
 ## 後續迭代候選
 
 - 設計單字級錯題 / 複習紀錄。
+
+更完整的小版本計畫、架構檢視與發佈檢查清單記錄在：
+
+```text
+TODO.md
+```
