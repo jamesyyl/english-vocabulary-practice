@@ -6,7 +6,7 @@
 
 - 目前線上與本地架構是純前端靜態頁：`index.html`、`css/style.css`、`js/app.js`、`js/vocabulary.js`。
 - 字庫來源維護在 `data/vocabulary.enriched.json`，再由 `scripts/generate-vocabulary-js.js` 產生 `js/vocabulary.js`。
-- 目前進度存在 `localStorage` 的 `englishVocabularyPracticeProgress:v1`，payload 已升級為 `schemaVersion: 2`，包含分類進度與 per-word mastery records。
+- 目前進度存在 `localStorage` 的 `englishVocabularyPracticeProgress:v1`，payload 已升級為 `schemaVersion: 2`，包含分類進度與 per-word mastery records；`0.2.1` 已使用這些 records 提供最小今日複習入口。
 - README 目前只有一個後續候選：設計單字級錯題 / 複習紀錄。
 
 ## 架構檢視
@@ -70,14 +70,15 @@
 
 ### 0.2.1 複習入口最小版
 
-- [ ] 首頁新增「今日複習」或「需要複習」入口，只列出 `nextReviewAt <= today` 或 `lastResult=unknown` 的字。
-- [ ] 複習模式仍使用現有單字卡與「學會了 / 還不會」按鈕。
-- [ ] 結算頁顯示本輪複習統計，不改分類 mission 流程。
+- [x] 首頁新增「今日複習」或「需要複習」入口，只列出 `nextReviewAt <= today` 或 `lastResult=unknown` 的字。
+- [x] 複習模式仍使用現有單字卡與「學會了 / 還不會」按鈕。
+- [x] 結算頁顯示本輪複習統計，不改分類 mission 流程。
 
 驗收：
 
-- [ ] 沒有複習字時，原分類練習仍是主入口。
-- [ ] 有複習字時，能完成複習並更新熟練度。
+- [x] 沒有複習字時，原分類練習仍是主入口。
+- [x] 有複習字時，能完成複習並更新熟練度。
+- [x] 複習模式不推進分類 `nextStartIndex` / `completedCount`。
 
 ### 0.3.0 發音資源架構
 

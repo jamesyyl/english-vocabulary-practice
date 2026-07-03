@@ -2,7 +2,7 @@
 
 A lightweight English vocabulary practice app for elementary school learners. It is a static front-end project: no login, no backend, no build step, and no dev server required.
 
-- Current version: `0.2.0`
+- Current version: `0.2.1`
 - Live demo: <https://jamesyyl.github.io/english-vocabulary-practice/>
 - Vocabulary set: G6 vocabulary p1-p2, 230 words
 - Runtime: browser only
@@ -18,6 +18,7 @@ A lightweight English vocabulary practice app for elementary school learners. It
 - Continue the next mission, repeat the current mission, or return home.
 - Save per-category progress in `localStorage`.
 - Track word-level mastery data locally for future review and quiz modes.
+- Start a minimal review round for due or recently missed words.
 - Reset local progress from the home screen.
 
 ## Quick Start
@@ -125,7 +126,24 @@ Each word mastery record stores:
 - `masteryLevel`: simple `0-4` mastery level.
 - `nextReviewAt`: suggested next review timestamp.
 
-Existing v1 category progress is migrated automatically to schema v2. The current UI still keeps the same category mission flow; review UI is planned for a later release.
+Existing v1 category progress is migrated automatically to schema v2. Category practice still moves category progress forward; review practice only updates word mastery and does not advance category progress.
+
+## Review Mode
+
+The home screen shows a minimal review entry when words need attention.
+
+A word enters review when:
+
+- `lastResult` is `unknown`, or
+- `nextReviewAt` is due.
+
+Review behavior:
+
+- A review round uses the same word card and answer buttons as category practice.
+- A review round is capped at 10 words.
+- Recently missed words are prioritized first.
+- Review answers update word mastery records.
+- Review does not change category `nextStartIndex` or `completedCount`.
 
 ## Verification
 
@@ -205,9 +223,9 @@ Invoke-WebRequest -Uri "https://jamesyyl.github.io/english-vocabulary-practice/"
 When changing `css/style.css`, `js/app.js`, or `js/vocabulary.js`, update the version query string in `index.html` to avoid mixed browser/CDN cache:
 
 ```html
-<link rel="stylesheet" href="css/style.css?v=20260703-home-meta">
+<link rel="stylesheet" href="css/style.css?v=20260703-review-mode">
 <script src="js/vocabulary.js?v=20260703-mastery-model"></script>
-<script src="js/app.js?v=20260703-mastery-model"></script>
+<script src="js/app.js?v=20260703-review-mode"></script>
 ```
 
 ## Roadmap
@@ -216,7 +234,6 @@ Near-term work is tracked in `TODO.md`.
 
 Planned direction:
 
-- `0.2.1`: add a minimal review mode.
 - `0.3.0`: add static audio fallback architecture.
 - `0.4.0`: design multi-vocabulary-set support.
 
@@ -227,7 +244,7 @@ Planned direction:
 - No admin dashboard.
 - Progress is stored only on the same device and browser.
 - Pronunciation currently depends on the browser Web Speech API.
-- Review mode and quiz mode are not implemented yet.
+- Quiz mode is not implemented yet.
 
 ## Changelog
 

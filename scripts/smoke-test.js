@@ -28,7 +28,9 @@ const ELEMENT_IDS = [
   "return-home",
   "result-note",
   "progress-status",
-  "reset-progress"
+  "reset-progress",
+  "review-summary",
+  "start-review"
 ];
 
 class ClassList {
@@ -207,6 +209,7 @@ function createHarness(initialStorage = {}) {
   elements["practice-screen"].classList = new ClassList("screen practice-screen");
   elements["result-screen"].classList = new ClassList("screen result-screen");
   elements["start-practice"].disabled = true;
+  elements["start-review"].disabled = true;
 
   const storage = createStorage(initialStorage);
   const sandbox = {
@@ -334,11 +337,59 @@ function migrateLegacyProgress() {
   assert(migrated.words["g6-p1-p2:verbs:11:cover"].unknownCount === 1, "Expected migrated progress to create word mastery records.");
 }
 
+function reviewModeDoesNotAdvanceCategory() {
+  const reviewStorage = {};
+  reviewStorage[STORAGE_KEY] = JSON.stringify({
+    schemaVersion: 2,
+    categories: {
+      Verbs: {
+        nextStartIndex: 10,
+        completedCount: 10,
+        savedAt: "2026-07-03T00:00:00.000Z"
+      }
+    },
+    words: {
+      "g6-p1-p2:verbs:11:cover": {
+        knownCount: 0,
+        unknownCount: 1,
+        lastPracticedAt: "2026-07-03T00:00:00.000Z",
+        lastResult: "unknown",
+        streakKnown: 0,
+        masteryLevel: 0,
+        nextReviewAt: "2026-07-04T00:00:00.000Z"
+      }
+    },
+    savedAt: "2026-07-03T00:00:00.000Z"
+  });
+
+  const harness = createHarness(reviewStorage);
+  assert(harness.elements["review-summary"].textContent.includes("今日複習：1 個字"), "Expected review panel to show one review word.");
+  assert(harness.elements["start-review"].disabled === false, "Expected review button to be enabled.");
+
+  harness.elements["start-review"].click();
+  assert(harness.elements["practice-title"].textContent === "今日複習", "Expected review practice title.");
+  assert(harness.elements["progress-label"].textContent === "1 / 1", "Expected one review card.");
+
+  harness.elements["mark-known"].click();
+
+  const saved = JSON.parse(harness.storage.getItem(STORAGE_KEY));
+  assert(saved.categories.Verbs.nextStartIndex === 10, "Expected review mode not to advance category nextStartIndex.");
+  assert(saved.categories.Verbs.completedCount === 10, "Expected review mode not to advance category completedCount.");
+
+  const reviewed = saved.words["g6-p1-p2:verbs:11:cover"];
+  assert(reviewed.knownCount === 1, "Expected review known answer to update knownCount.");
+  assert(reviewed.unknownCount === 1, "Expected review to preserve previous unknownCount.");
+  assert(reviewed.lastResult === "known", "Expected review lastResult to update to known.");
+  assert(harness.elements["next-round"].disabled === true, "Expected no next review round after clearing the only review word.");
+  assert(harness.elements["result-note"].textContent.includes("今日複習已完成"), "Expected review completion note.");
+}
+
 function main() {
   const savedStorage = completeFirstRound();
   resumeAndReset(savedStorage);
   migrateLegacyProgress();
-  console.log("Smoke test passed: category mission, schema v2 mastery, legacy migration, resume, and reset.");
+  reviewModeDoesNotAdvanceCategory();
+  console.log("Smoke test passed: category mission, review mode, schema v2 mastery, legacy migration, resume, and reset.");
 }
 
 main();

@@ -22,15 +22,20 @@
   const resultNoteEl = document.getElementById("result-note");
   const progressStatusEl = document.getElementById("progress-status");
   const resetProgressBtn = document.getElementById("reset-progress");
+  const reviewSummaryEl = document.getElementById("review-summary");
+  const startReviewBtn = document.getElementById("start-review");
 
   const vocabulary = window.VOCABULARY_DATA || [];
   const STORAGE_KEY = "englishVocabularyPracticeProgress:v1";
   const PROGRESS_SCHEMA_VERSION = 2;
   const MISSION_SIZE_OPTIONS = [10, 20, 30];
+  const REVIEW_MISSION_SIZE = 10;
   const state = {
     categories: [],
+    wordById: new Map(),
     selectedCategoryKey: "",
     selectedMissionSize: null,
+    practiceMode: "category",
     roundWords: [],
     currentIndex: 0,
     knownCount: 0,
@@ -53,11 +58,13 @@
     }
 
     state.categories = buildCategories(vocabulary);
+    state.wordById = buildWordMap(vocabulary);
     state.progress = loadProgress();
     statusEl.textContent = `字庫已載入：${vocabulary.length} 個單字。`;
     renderCategoryList();
     renderMissionOptions();
     updateHomeProgress();
+    updateReviewPanel();
     bindEvents();
   }
 
@@ -79,6 +86,7 @@
     repeatRoundBtn.addEventListener("click", repeatRound);
     returnHomeBtn.addEventListener("click", returnHome);
     resetProgressBtn.addEventListener("click", resetProgress);
+    startReviewBtn.addEventListener("click", startReview);
   }
 
   function startPractice() {
@@ -87,6 +95,7 @@
       return;
     }
 
+    state.practiceMode = "category";
     const progress = getCategoryProgress(category.key);
     state.currentRoundStartIndex = progress.nextStartIndex;
     state.roundWords = getRoundWords(category, progress.nextStartIndex, state.selectedMissionSize);
@@ -95,6 +104,19 @@
       return;
     }
 
+    beginRound();
+  }
+
+  function startReview() {
+    const reviewWords = getReviewWords(new Date()).slice(0, REVIEW_MISSION_SIZE);
+    if (reviewWords.length === 0) {
+      updateReviewPanel();
+      return;
+    }
+
+    state.practiceMode = "review";
+    state.currentRoundStartIndex = 0;
+    state.roundWords = reviewWords;
     beginRound();
   }
 
@@ -109,6 +131,11 @@
   }
 
   function startNextRound() {
+    if (state.practiceMode === "review") {
+      startReview();
+      return;
+    }
+
     const category = getSelectedCategory();
     if (!category || state.selectedMissionSize === null) {
       returnHome();
@@ -134,6 +161,7 @@
     renderCategoryList();
     renderMissionOptions();
     updateHomeProgress();
+    updateReviewPanel();
     showScreen(homeScreen);
   }
 
@@ -143,6 +171,7 @@
     renderCategoryList();
     renderMissionOptions();
     updateHomeProgress();
+    updateReviewPanel();
   }
 
   function buildCategories(rows) {
@@ -162,6 +191,16 @@
     });
 
     return Array.from(categoryMap.values());
+  }
+
+  function buildWordMap(rows) {
+    const wordMap = new Map();
+    rows.forEach(function (word) {
+      if (word.wordId) {
+        wordMap.set(word.wordId, word);
+      }
+    });
+    return wordMap;
   }
 
   function renderCategoryList() {
@@ -391,16 +430,17 @@
 
   function showResult() {
     const category = getSelectedCategory();
-    if (category) {
+    if (state.practiceMode === "category" && category) {
       const nextStartIndex = Math.min(state.currentRoundStartIndex + state.roundWords.length, category.words.length);
       state.progress.categories[category.key] = {
         nextStartIndex,
         completedCount: nextStartIndex,
         savedAt: new Date().toISOString()
       };
-      applyRoundMasteryResults(new Date().toISOString());
-      saveProgress();
     }
+
+    applyRoundMasteryResults(new Date().toISOString());
+    saveProgress();
 
     resultTotalEl.textContent = String(state.roundWords.length);
     resultKnownEl.textContent = String(state.knownCount);
@@ -434,12 +474,50 @@
     resetProgressBtn.classList.toggle("is-hidden", !hasProgress);
   }
 
+  function updateReviewPanel() {
+    const reviewWords = getReviewWords(new Date());
+    const reviewCount = reviewWords.length;
+
+    if (reviewCount > 0) {
+      const missionCount = Math.min(reviewCount, REVIEW_MISSION_SIZE);
+      reviewSummaryEl.textContent = `今日複習：${reviewCount} 個字待加強，本輪會先練 ${missionCount} 個。`;
+      startReviewBtn.disabled = false;
+      startReviewBtn.textContent = `開始複習 ${missionCount} 題`;
+      return;
+    }
+
+    reviewSummaryEl.textContent = "今日沒有到期複習的字。";
+    startReviewBtn.disabled = true;
+    startReviewBtn.textContent = "開始複習";
+  }
+
   function updatePracticeTitle() {
+    if (state.practiceMode === "review") {
+      practiceTitleEl.textContent = "今日複習";
+      return;
+    }
+
     const category = getSelectedCategory();
     practiceTitleEl.textContent = category ? `${category.nameEn} 單字卡` : "單字卡";
   }
 
   function updateResultActions() {
+    if (state.practiceMode === "review") {
+      const remainingReviewCount = getReviewWords(new Date()).length;
+      if (remainingReviewCount > 0) {
+        const nextReviewSize = Math.min(remainingReviewCount, REVIEW_MISSION_SIZE);
+        nextRoundBtn.disabled = false;
+        nextRoundBtn.textContent = `繼續複習 ${nextReviewSize} 題`;
+        resultNoteEl.textContent = `複習不會推進分類進度；目前還有 ${remainingReviewCount} 個字需要回頭看。`;
+        return;
+      }
+
+      nextRoundBtn.disabled = true;
+      nextRoundBtn.textContent = "今日複習完成";
+      resultNoteEl.textContent = "今日複習已完成；可以回首頁繼續分類練習。";
+      return;
+    }
+
     const category = getSelectedCategory();
     const remainingCount = category ? getRemainingCount(category) : 0;
     const chosenSizeLabel = state.selectedMissionSize === "all" ? "全部" : `${state.selectedMissionSize} 字`;
@@ -481,6 +559,56 @@
       nextStartIndex,
       completedCount
     };
+  }
+
+  function getReviewWords(now) {
+    const nowTime = now.getTime();
+    return Object.keys(state.progress.words || {})
+      .map(function (wordId) {
+        const word = state.wordById.get(wordId);
+        const record = normalizeWordProgress(state.progress.words[wordId]);
+        if (!word || !isReviewDue(record, nowTime)) {
+          return null;
+        }
+
+        return {
+          word,
+          record
+        };
+      })
+      .filter(Boolean)
+      .sort(compareReviewItems)
+      .map(function (item) {
+        return item.word;
+      });
+  }
+
+  function isReviewDue(record, nowTime) {
+    if (record.lastResult === "unknown") {
+      return true;
+    }
+
+    if (!record.nextReviewAt) {
+      return false;
+    }
+
+    const reviewTime = Date.parse(record.nextReviewAt);
+    return Number.isFinite(reviewTime) && reviewTime <= nowTime;
+  }
+
+  function compareReviewItems(a, b) {
+    const aUnknown = a.record.lastResult === "unknown" ? 1 : 0;
+    const bUnknown = b.record.lastResult === "unknown" ? 1 : 0;
+    if (aUnknown !== bUnknown) {
+      return bUnknown - aUnknown;
+    }
+
+    return getReviewTime(a.record) - getReviewTime(b.record);
+  }
+
+  function getReviewTime(record) {
+    const reviewTime = Date.parse(record.nextReviewAt || "");
+    return Number.isFinite(reviewTime) ? reviewTime : Number.MAX_SAFE_INTEGER;
   }
 
   function normalizeIndex(value, total) {

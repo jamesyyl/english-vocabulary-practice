@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.1 - 2026-07-03
+
+### Added
+
+- Added a minimal home-screen review entry for due or recently missed words.
+- Added review mode using the existing word card and answer buttons.
+- Added review prioritization for `lastResult = unknown`, then earliest `nextReviewAt`.
+- Expanded smoke tests to confirm review mode updates mastery without advancing category progress.
+
+### Changed
+
+- Updated home screen version metadata and CSS / JS cache-busting query strings.
+
+### Verification
+
+- `node scripts/verify-release.js`
+
 ## 0.2.0 - 2026-07-03
 
 ### Added
