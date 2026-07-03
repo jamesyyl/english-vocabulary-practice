@@ -525,6 +525,43 @@ h2 {
   letter-spacing: 0;
 }
 
+.field-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.field-label-row .field-label {
+  margin-bottom: 0;
+}
+
+.sentence-audio-action {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 2px solid color-mix(in oklch, var(--accent) 26%, white);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.sentence-audio-action:hover {
+  background: color-mix(in oklch, var(--sun) 24%, var(--accent-soft));
+}
+
+.sentence-audio-action:focus-visible {
+  outline: 4px solid color-mix(in oklch, var(--sun) 70%, white);
+  outline-offset: 3px;
+}
+
 .empty-state {
   color: var(--muted);
 }

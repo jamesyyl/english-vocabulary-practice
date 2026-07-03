@@ -42,6 +42,7 @@
     unknownCount: 0,
     roundResults: [],
     currentRoundStartIndex: 0,
+    activeAudio: null,
     progress: {
       schemaVersion: PROGRESS_SCHEMA_VERSION,
       categories: {},
@@ -73,7 +74,7 @@
     speakWordBtn.addEventListener("click", function () {
       const current = state.roundWords[state.currentIndex];
       if (current) {
-        speakWord(current.word);
+        playPronunciation(current, "word", { auto: false });
       }
     });
     markKnownBtn.addEventListener("click", function () {
@@ -388,6 +389,112 @@
     window.speechSynthesis.speak(utterance);
   }
 
+  function playPronunciation(wordEntry, target, options) {
+    const text = target === "sentence" ? wordEntry.exampleSentence : wordEntry.word;
+    const audioSrc = getAudioSrc(wordEntry, target);
+    const isAuto = Boolean(options && options.auto);
+    stopActiveAudio();
+
+    if (target === "word" && !isAuto) {
+      speakWordBtn.textContent = "播放中...";
+    }
+
+    return playAudioFile(audioSrc)
+      .catch(function () {
+        return speakText(text);
+      })
+      .catch(function () {
+        if (target === "word" && !isAuto) {
+          speakWordBtn.textContent = "此瀏覽器不支援發音";
+          speakWordBtn.disabled = true;
+        }
+      })
+      .finally(function () {
+        if (target === "word" && !isAuto && !speakWordBtn.disabled) {
+          restoreSpeakButtonLabel();
+        }
+      });
+  }
+
+  function getAudioSrc(wordEntry, target) {
+    const setId = wordEntry.vocabularySetId || "g6-p1-p2";
+    const folder = target === "sentence" ? "sentences" : "words";
+    const baseName = wordEntry.audioBaseName || createAudioBaseName(wordEntry);
+    return `audio/${encodeURIComponent(setId)}/${folder}/${encodeURIComponent(baseName)}.mp3`;
+  }
+
+  function createAudioBaseName(wordEntry) {
+    return String(wordEntry.wordId || wordEntry.word || "word")
+      .replace(/^g6-p1-p2:/, "")
+      .replace(/:/g, "-")
+      .replace(/[^a-zA-Z0-9-]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .toLowerCase();
+  }
+
+  function playAudioFile(src) {
+    return new Promise(function (resolve, reject) {
+      if (typeof Audio === "undefined" || !src) {
+        reject(new Error("Audio is unavailable."));
+        return;
+      }
+
+      const audio = new Audio(src);
+      state.activeAudio = audio;
+      audio.addEventListener("ended", resolve, { once: true });
+      audio.addEventListener("error", reject, { once: true });
+
+      const result = audio.play();
+      if (result && typeof result.catch === "function") {
+        result.catch(reject);
+      }
+    });
+  }
+
+  function stopActiveAudio() {
+    if (state.activeAudio) {
+      state.activeAudio.pause();
+      state.activeAudio.currentTime = 0;
+      state.activeAudio = null;
+    }
+
+    if (!speakWordBtn.disabled) {
+      restoreSpeakButtonLabel();
+    }
+
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+
+  function speakText(text) {
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      return Promise.reject(new Error("Speech synthesis is unavailable."));
+    }
+
+    const cleanText = String(text || "").trim();
+    if (!cleanText) {
+      return Promise.resolve();
+    }
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = "en-US";
+    utterance.rate = 0.86;
+    utterance.pitch = 1;
+
+    const voice = pickEnglishVoice();
+    if (voice) {
+      utterance.voice = voice;
+      utterance.lang = voice.lang;
+    }
+
+    return new Promise(function (resolve, reject) {
+      utterance.onend = resolve;
+      utterance.onerror = reject;
+      window.speechSynthesis.speak(utterance);
+    });
+  }
+
   function pickEnglishVoice() {
     const voices = window.speechSynthesis.getVoices();
     return voices.find(function (voice) {
@@ -424,8 +531,22 @@
         </div>
       </div>
       <p class="placeholder phrase-block"><span class="field-label">Common phrase</span>${escapeHtml(current.phrase || "待補充")}</p>
-      <p class="placeholder example-block"><span class="field-label">Example sentence</span><strong>${escapeHtml(current.exampleSentence || "待補充")}</strong></p>
+      <p class="placeholder example-block">
+        <span class="field-label-row">
+          <span class="field-label">Example sentence</span>
+          <button class="sentence-audio-action" type="button" aria-label="播放例句" title="播放例句">🔊</button>
+        </span>
+        <strong>${escapeHtml(current.exampleSentence || "待補充")}</strong>
+      </p>
     `;
+
+    cardEl.querySelectorAll(".sentence-audio-action").forEach(function (button) {
+      button.addEventListener("click", function () {
+        playPronunciation(current, "sentence", { auto: false });
+      });
+    });
+
+    playPronunciation(current, "word", { auto: true });
   }
 
   function showResult() {

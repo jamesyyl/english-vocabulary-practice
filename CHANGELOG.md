@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.3.0 - 2026-07-03
+
+### Added
+
+- Added deterministic audio file names through generated `audioBaseName`.
+- Added local MP3 playback before Web Speech fallback for word pronunciation.
+- Added automatic word pronunciation when a word card opens.
+- Added an example sentence speaker button on each word card.
+- Added `scripts/generate-audio-samples.js` for small Google Translate TTS sample generation.
+- Added committed MP3 samples for the first 5 words and their example sentences.
+
+### Changed
+
+- Updated release verification to check the audio sample files.
+- Updated smoke tests to cover the example sentence audio button.
+- Updated home screen version metadata and CSS / JS cache-busting query strings.
+
+### Verification
+
+- `node scripts/verify-release.js`
+
 ## 0.2.1 - 2026-07-03
 
 ### Added

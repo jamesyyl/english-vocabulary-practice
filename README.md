@@ -2,7 +2,7 @@
 
 A lightweight English vocabulary practice app for elementary school learners. It is a static front-end project: no login, no backend, no build step, and no dev server required.
 
-- Current version: `0.2.1`
+- Current version: `0.3.0`
 - Live demo: <https://jamesyyl.github.io/english-vocabulary-practice/>
 - Vocabulary set: G6 vocabulary p1-p2, 230 words
 - Runtime: browser only
@@ -12,7 +12,8 @@ A lightweight English vocabulary practice app for elementary school learners. It
 - Practice words by category.
 - Choose a mission size: 10, 20, 30, or all remaining words in the selected category.
 - View word details: English word, part of speech, Chinese meaning, English definition, phrase, example sentence, and phonics hint.
-- Play pronunciation through the browser Web Speech API.
+- Auto-play word pronunciation when a word card opens.
+- Play word and example sentence pronunciation from local MP3 files, with browser Web Speech fallback.
 - Mark each card as `學會了` or `還不會`.
 - See round results after each mission.
 - Continue the next mission, repeat the current mission, or return home.
@@ -87,6 +88,7 @@ Every generated vocabulary entry must include:
 - `categoryEn`
 - `vocabularySetId`
 - `wordId`
+- `audioBaseName`
 - `englishDefinition`
 - `exampleSentence`
 - `phrase`
@@ -100,6 +102,38 @@ Validation rules:
 - Each example sentence must contain at least 7 English words.
 - Original source fields must remain consistent with `data/G6_vocabulary_p1-p2.original.json`.
 - Every word must have a unique `wordId`.
+
+## Audio Workflow
+
+The app first tries to play a local MP3 file. If the file is missing, blocked, or cannot be played, it falls back to the browser Web Speech API.
+
+Audio file paths are deterministic:
+
+```text
+audio/<vocabularySetId>/words/<audioBaseName>.mp3
+audio/<vocabularySetId>/sentences/<audioBaseName>.mp3
+```
+
+Example:
+
+```text
+audio/g6-p1-p2/words/verbs-1-agree.mp3
+audio/g6-p1-p2/sentences/verbs-1-agree.mp3
+```
+
+Generate a small Google Translate TTS sample set:
+
+```powershell
+node scripts/generate-audio-samples.js --limit=5
+```
+
+Regenerate existing sample files:
+
+```powershell
+node scripts/generate-audio-samples.js --limit=5 --force
+```
+
+Google Translate TTS is used as an unofficial sample source. It is suitable for trying this project locally, but it can change, rate-limit, or fail without notice. For a larger or more reliable audio library, use a formal TTS provider and keep the same local MP3 path convention.
 
 ## Progress Data
 
@@ -151,6 +185,7 @@ Run syntax checks:
 
 ```powershell
 node --check scripts/generate-vocabulary-js.js
+node --check scripts/generate-audio-samples.js
 node --check js/app.js
 node --check js/vocabulary.js
 ```
@@ -243,7 +278,8 @@ Planned direction:
 - No cloud sync.
 - No admin dashboard.
 - Progress is stored only on the same device and browser.
-- Pronunciation currently depends on the browser Web Speech API.
+- Only the first 5 words currently include committed MP3 audio samples.
+- Missing MP3 audio falls back to the browser Web Speech API.
 - Quiz mode is not implemented yet.
 
 ## Changelog

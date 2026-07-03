@@ -7,12 +7,14 @@ const PROJECT_ROOT = path.resolve(__dirname, "..");
 
 function main() {
   run("node", ["--check", "scripts/generate-vocabulary-js.js"]);
+  run("node", ["--check", "scripts/generate-audio-samples.js"]);
   run("node", ["--check", "js/app.js"]);
   run("node", ["--check", "js/vocabulary.js"]);
   run("node", ["--check", "scripts/smoke-test.js"]);
   run("node", ["--check", "scripts/verify-release.js"]);
   run("node", ["scripts/generate-vocabulary-js.js"]);
   verifyVocabularyData();
+  verifyAudioSamples();
   run("node", ["scripts/smoke-test.js"]);
   console.log("Release verification passed.");
 }
@@ -36,7 +38,7 @@ function verifyVocabularyData() {
 
   const rows = sandbox.window.VOCABULARY_DATA;
   const missing = rows.filter(function (entry) {
-    return !entry.vocabularySetId || !entry.wordId || !entry.englishDefinition || !entry.exampleSentence || !entry.phrase || !entry.phonicsHint;
+    return !entry.vocabularySetId || !entry.wordId || !entry.audioBaseName || !entry.englishDefinition || !entry.exampleSentence || !entry.phrase || !entry.phonicsHint;
   });
   const shortExamples = rows.filter(function (entry) {
     return String(entry.exampleSentence).split(/[^A-Za-z']+/).filter(Boolean).length < 7;
@@ -55,6 +57,29 @@ function verifyVocabularyData() {
   }
 
   console.log("Vocabulary verification passed: 230 words, 0 missing fields, 0 short examples, unique word IDs.");
+}
+
+function verifyAudioSamples() {
+  const code = fs.readFileSync(path.join(PROJECT_ROOT, "js", "vocabulary.js"), "utf8");
+  const sandbox = { window: {} };
+  vm.runInNewContext(code, sandbox, { filename: "js/vocabulary.js" });
+
+  const rows = sandbox.window.VOCABULARY_DATA.slice(0, 5);
+  const missing = [];
+  rows.forEach(function (entry) {
+    ["words", "sentences"].forEach(function (folder) {
+      const filePath = path.join(PROJECT_ROOT, "audio", entry.vocabularySetId, folder, `${entry.audioBaseName}.mp3`);
+      if (!fs.existsSync(filePath) || fs.statSync(filePath).size <= 500) {
+        missing.push(path.relative(PROJECT_ROOT, filePath));
+      }
+    });
+  });
+
+  if (missing.length > 0) {
+    throw new Error(`Audio sample verification failed: ${missing.join(", ")}`);
+  }
+
+  console.log("Audio sample verification passed: first 5 words and example sentences have MP3 files.");
 }
 
 main();

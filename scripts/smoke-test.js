@@ -135,6 +135,36 @@ class TestElement {
   }
 }
 
+class TestAudio {
+  constructor(src) {
+    this.src = src;
+    this.currentTime = 0;
+    this.eventListeners = {};
+  }
+
+  addEventListener(type, handler) {
+    this.eventListeners[type] = handler;
+  }
+
+  play() {
+    return Promise.reject(new Error(`Audio fixture missing: ${this.src}`));
+  }
+
+  pause() {}
+}
+
+class TestSpeechSynthesisUtterance {
+  constructor(text) {
+    this.text = text;
+    this.lang = "";
+    this.rate = 1;
+    this.pitch = 1;
+    this.voice = null;
+    this.onend = null;
+    this.onerror = null;
+  }
+}
+
 function parseChildButtons(html) {
   const buttons = [];
   const buttonPattern = /<button\s+([^>]*)>([\s\S]*?)<\/button>/g;
@@ -216,15 +246,27 @@ function createHarness(initialStorage = {}) {
     window: {
       localStorage: storage,
       scrollTo() {},
-      VOCABULARY_DATA: undefined
+      VOCABULARY_DATA: undefined,
+      speechSynthesis: {
+        cancel() {},
+        getVoices() {
+          return [];
+        },
+        speak(utterance) {
+          if (typeof utterance.onend === "function") {
+            utterance.onend();
+          }
+        }
+      }
     },
+    Audio: TestAudio,
     document: {
       getElementById(id) {
         return elements[id] || null;
       }
     },
     console,
-    SpeechSynthesisUtterance: undefined
+    SpeechSynthesisUtterance: TestSpeechSynthesisUtterance
   };
 
   vm.createContext(sandbox);
@@ -255,6 +297,10 @@ function completeFirstRound() {
   harness.elements["start-practice"].click();
   assert(harness.elements["practice-screen"].classList.contains("is-active"), "Expected practice screen to be active.");
   assert(harness.elements["progress-label"].textContent === "1 / 10", "Expected first mission to start at 1 / 10.");
+  assert(
+    harness.elements["word-card"].querySelectorAll(".sentence-audio-action").length === 1,
+    "Expected example sentence audio button to render on the word card."
+  );
 
   for (let index = 0; index < 10; index += 1) {
     harness.elements["mark-known"].click();

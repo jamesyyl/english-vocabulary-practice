@@ -6,6 +6,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:1:agree",
+    "audioBaseName": "verbs-1-agree",
     "sourceNo": 1,
     "word": "agree",
     "partOfSpeech": "v.",
@@ -20,6 +21,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:2:announce",
+    "audioBaseName": "verbs-2-announce",
     "sourceNo": 2,
     "word": "announce",
     "partOfSpeech": "v.",
@@ -34,6 +36,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:3:arrive",
+    "audioBaseName": "verbs-3-arrive",
     "sourceNo": 3,
     "word": "arrive",
     "partOfSpeech": "v.",
@@ -48,6 +51,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:4:apologize",
+    "audioBaseName": "verbs-4-apologize",
     "sourceNo": 4,
     "word": "apologize",
     "partOfSpeech": "v.",
@@ -62,6 +66,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:5:bend",
+    "audioBaseName": "verbs-5-bend",
     "sourceNo": 5,
     "word": "bend",
     "partOfSpeech": "v.",
@@ -76,6 +81,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:6:borrow",
+    "audioBaseName": "verbs-6-borrow",
     "sourceNo": 6,
     "word": "borrow",
     "partOfSpeech": "v.",
@@ -90,6 +96,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:7:bounce",
+    "audioBaseName": "verbs-7-bounce",
     "sourceNo": 7,
     "word": "bounce",
     "partOfSpeech": "v.&n.",
@@ -104,6 +111,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:8:check",
+    "audioBaseName": "verbs-8-check",
     "sourceNo": 8,
     "word": "check",
     "partOfSpeech": "v.",
@@ -118,6 +126,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:9:complete",
+    "audioBaseName": "verbs-9-complete",
     "sourceNo": 9,
     "word": "complete",
     "partOfSpeech": "adj.; v.",
@@ -132,6 +141,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:10:continue",
+    "audioBaseName": "verbs-10-continue",
     "sourceNo": 10,
     "word": "continue",
     "partOfSpeech": "v.",
@@ -146,6 +156,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:11:cover",
+    "audioBaseName": "verbs-11-cover",
     "sourceNo": 11,
     "word": "cover",
     "partOfSpeech": "n.; v.",
@@ -160,6 +171,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:12:describe",
+    "audioBaseName": "verbs-12-describe",
     "sourceNo": 12,
     "word": "describe",
     "partOfSpeech": "v.",
@@ -174,6 +186,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:13:explain",
+    "audioBaseName": "verbs-13-explain",
     "sourceNo": 13,
     "word": "explain",
     "partOfSpeech": "v.",
@@ -188,6 +201,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:14:enter",
+    "audioBaseName": "verbs-14-enter",
     "sourceNo": 14,
     "word": "enter",
     "partOfSpeech": "v.",
@@ -202,6 +216,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:15:fill",
+    "audioBaseName": "verbs-15-fill",
     "sourceNo": 15,
     "word": "fill",
     "partOfSpeech": "v.",
@@ -216,6 +231,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:16:reach",
+    "audioBaseName": "verbs-16-reach",
     "sourceNo": 16,
     "word": "reach",
     "partOfSpeech": "v.",
@@ -230,6 +246,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:17:receive",
+    "audioBaseName": "verbs-17-receive",
     "sourceNo": 17,
     "word": "receive",
     "partOfSpeech": "v.",
@@ -244,6 +261,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:18:return",
+    "audioBaseName": "verbs-18-return",
     "sourceNo": 18,
     "word": "return",
     "partOfSpeech": "v.",
@@ -258,6 +276,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:19:repeat",
+    "audioBaseName": "verbs-19-repeat",
     "sourceNo": 19,
     "word": "repeat",
     "partOfSpeech": "v.",
@@ -272,6 +291,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:20:remind",
+    "audioBaseName": "verbs-20-remind",
     "sourceNo": 20,
     "word": "remind",
     "partOfSpeech": "vt.",
@@ -286,6 +306,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:21:search",
+    "audioBaseName": "verbs-21-search",
     "sourceNo": 21,
     "word": "search",
     "partOfSpeech": "n.& v.",
@@ -300,6 +321,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:22:separate",
+    "audioBaseName": "verbs-22-separate",
     "sourceNo": 22,
     "word": "separate",
     "partOfSpeech": "v.; adj.",
@@ -314,6 +336,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:23:spend",
+    "audioBaseName": "verbs-23-spend",
     "sourceNo": 23,
     "word": "spend",
     "partOfSpeech": "v.",
@@ -328,6 +351,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:24:report",
+    "audioBaseName": "verbs-24-report",
     "sourceNo": 24,
     "word": "report",
     "partOfSpeech": "n.& v.",
@@ -342,6 +366,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:25:clap",
+    "audioBaseName": "verbs-25-clap",
     "sourceNo": 25,
     "word": "clap",
     "partOfSpeech": "v.",
@@ -356,6 +381,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:26:rule",
+    "audioBaseName": "verbs-26-rule",
     "sourceNo": 26,
     "word": "rule",
     "partOfSpeech": "v.; n.",
@@ -370,6 +396,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:27:travel",
+    "audioBaseName": "verbs-27-travel",
     "sourceNo": 27,
     "word": "travel",
     "partOfSpeech": "v.&n.",
@@ -384,6 +411,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:28:wish",
+    "audioBaseName": "verbs-28-wish",
     "sourceNo": 28,
     "word": "wish",
     "partOfSpeech": "v.; n.",
@@ -398,6 +426,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:29:work",
+    "audioBaseName": "verbs-29-work",
     "sourceNo": 29,
     "word": "work",
     "partOfSpeech": "v.&n.",
@@ -412,6 +441,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:30:cough",
+    "audioBaseName": "verbs-30-cough",
     "sourceNo": 30,
     "word": "cough",
     "partOfSpeech": "n.& v.",
@@ -426,6 +456,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:31:headache",
+    "audioBaseName": "verbs-31-headache",
     "sourceNo": 31,
     "word": "headache",
     "partOfSpeech": "n.",
@@ -440,6 +471,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:32:present",
+    "audioBaseName": "verbs-32-present",
     "sourceNo": 32,
     "word": "present",
     "partOfSpeech": "v.; n.",
@@ -454,6 +486,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:verbs:33:schedule",
+    "audioBaseName": "verbs-33-schedule",
     "sourceNo": 33,
     "word": "schedule",
     "partOfSpeech": "v.; n.",
@@ -468,6 +501,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:1:asleep",
+    "audioBaseName": "adjectives-1-asleep",
     "sourceNo": 1,
     "word": "asleep",
     "partOfSpeech": "adj.",
@@ -482,6 +516,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:2:awake",
+    "audioBaseName": "adjectives-2-awake",
     "sourceNo": 2,
     "word": "awake",
     "partOfSpeech": "adj.",
@@ -496,6 +531,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:3:brave",
+    "audioBaseName": "adjectives-3-brave",
     "sourceNo": 3,
     "word": "brave",
     "partOfSpeech": "adj.",
@@ -510,6 +546,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:4:comfortable",
+    "audioBaseName": "adjectives-4-comfortable",
     "sourceNo": 4,
     "word": "comfortable",
     "partOfSpeech": "adj.",
@@ -524,6 +561,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:5:curious",
+    "audioBaseName": "adjectives-5-curious",
     "sourceNo": 5,
     "word": "curious",
     "partOfSpeech": "adj.",
@@ -538,6 +576,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:6:closed",
+    "audioBaseName": "adjectives-6-closed",
     "sourceNo": 6,
     "word": "closed",
     "partOfSpeech": "adj.",
@@ -552,6 +591,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:7:closing",
+    "audioBaseName": "adjectives-7-closing",
     "sourceNo": 7,
     "word": "closing",
     "partOfSpeech": "adj.; n.",
@@ -566,6 +606,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:8:difficult",
+    "audioBaseName": "adjectives-8-difficult",
     "sourceNo": 8,
     "word": "difficult",
     "partOfSpeech": "adj.",
@@ -580,6 +621,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:9:different",
+    "audioBaseName": "adjectives-9-different",
     "sourceNo": 9,
     "word": "different",
     "partOfSpeech": "adj.",
@@ -594,6 +636,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:10:dangerous",
+    "audioBaseName": "adjectives-10-dangerous",
     "sourceNo": 10,
     "word": "dangerous",
     "partOfSpeech": "adj.",
@@ -608,6 +651,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:11:special",
+    "audioBaseName": "adjectives-11-special",
     "sourceNo": 11,
     "word": "special",
     "partOfSpeech": "n.",
@@ -622,6 +666,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:12:dead",
+    "audioBaseName": "adjectives-12-dead",
     "sourceNo": 12,
     "word": "dead",
     "partOfSpeech": "adj.",
@@ -636,6 +681,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:13:friendly",
+    "audioBaseName": "adjectives-13-friendly",
     "sourceNo": 13,
     "word": "friendly",
     "partOfSpeech": "adj.",
@@ -650,6 +696,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:14:finished",
+    "audioBaseName": "adjectives-14-finished",
     "sourceNo": 14,
     "word": "finished",
     "partOfSpeech": "adj.",
@@ -664,6 +711,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:15:opposite",
+    "audioBaseName": "adjectives-15-opposite",
     "sourceNo": 15,
     "word": "opposite",
     "partOfSpeech": "adj.",
@@ -678,6 +726,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:16:serious",
+    "audioBaseName": "adjectives-16-serious",
     "sourceNo": 16,
     "word": "serious",
     "partOfSpeech": "adj.",
@@ -692,6 +741,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:17:silent",
+    "audioBaseName": "adjectives-17-silent",
     "sourceNo": 17,
     "word": "silent",
     "partOfSpeech": "adj.",
@@ -706,6 +756,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:18:stomachache",
+    "audioBaseName": "adjectives-18-stomachache",
     "sourceNo": 18,
     "word": "stomachache",
     "partOfSpeech": "adj.",
@@ -720,6 +771,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:19:weak",
+    "audioBaseName": "adjectives-19-weak",
     "sourceNo": 19,
     "word": "weak",
     "partOfSpeech": "adj.",
@@ -734,6 +786,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:20:alone",
+    "audioBaseName": "adjectives-20-alone",
     "sourceNo": 20,
     "word": "alone",
     "partOfSpeech": "adj.",
@@ -748,6 +801,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:21:bright",
+    "audioBaseName": "adjectives-21-bright",
     "sourceNo": 21,
     "word": "bright",
     "partOfSpeech": "adj.",
@@ -762,6 +816,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:22:loving",
+    "audioBaseName": "adjectives-22-loving",
     "sourceNo": 22,
     "word": "loving",
     "partOfSpeech": "adj.",
@@ -776,6 +831,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:23:fair",
+    "audioBaseName": "adjectives-23-fair",
     "sourceNo": 23,
     "word": "fair",
     "partOfSpeech": "adj.",
@@ -790,6 +846,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:24:excellent",
+    "audioBaseName": "adjectives-24-excellent",
     "sourceNo": 24,
     "word": "excellent",
     "partOfSpeech": "adj.",
@@ -804,6 +861,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:25:excited",
+    "audioBaseName": "adjectives-25-excited",
     "sourceNo": 25,
     "word": "excited",
     "partOfSpeech": "adj.",
@@ -818,6 +876,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:26:exciting",
+    "audioBaseName": "adjectives-26-exciting",
     "sourceNo": 26,
     "word": "exciting",
     "partOfSpeech": "adj.",
@@ -832,6 +891,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:27:silly",
+    "audioBaseName": "adjectives-27-silly",
     "sourceNo": 27,
     "word": "silly",
     "partOfSpeech": "adj.",
@@ -846,6 +906,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:28:square",
+    "audioBaseName": "adjectives-28-square",
     "sourceNo": 28,
     "word": "square",
     "partOfSpeech": "adj.",
@@ -860,6 +921,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:29:round",
+    "audioBaseName": "adjectives-29-round",
     "sourceNo": 29,
     "word": "round",
     "partOfSpeech": "adj.; n.",
@@ -874,6 +936,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:30:glad",
+    "audioBaseName": "adjectives-30-glad",
     "sourceNo": 30,
     "word": "glad",
     "partOfSpeech": "adj.",
@@ -888,6 +951,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:31:far",
+    "audioBaseName": "adjectives-31-far",
     "sourceNo": 31,
     "word": "far",
     "partOfSpeech": "adj.",
@@ -902,6 +966,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adjectives:32:crazy",
+    "audioBaseName": "adjectives-32-crazy",
     "sourceNo": 32,
     "word": "crazy",
     "partOfSpeech": "adj.",
@@ -916,6 +981,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:preposition:1:against",
+    "audioBaseName": "preposition-1-against",
     "sourceNo": 1,
     "word": "against",
     "partOfSpeech": "prep.",
@@ -930,6 +996,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:preposition:2:along",
+    "audioBaseName": "preposition-2-along",
     "sourceNo": 2,
     "word": "along",
     "partOfSpeech": "prep.",
@@ -944,6 +1011,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:preposition:3:except",
+    "audioBaseName": "preposition-3-except",
     "sourceNo": 3,
     "word": "except",
     "partOfSpeech": "prep.",
@@ -958,6 +1026,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:preposition:4:since",
+    "audioBaseName": "preposition-4-since",
     "sourceNo": 4,
     "word": "since",
     "partOfSpeech": "prep.",
@@ -972,6 +1041,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:1:either",
+    "audioBaseName": "pronoun-1-either",
     "sourceNo": 1,
     "word": "either",
     "partOfSpeech": "pron.& adj.",
@@ -986,6 +1056,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:2:hers",
+    "audioBaseName": "pronoun-2-hers",
     "sourceNo": 2,
     "word": "hers",
     "partOfSpeech": "pron.",
@@ -1000,6 +1071,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:3:mine",
+    "audioBaseName": "pronoun-3-mine",
     "sourceNo": 3,
     "word": "mine",
     "partOfSpeech": "pron.",
@@ -1014,6 +1086,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:4:nothing",
+    "audioBaseName": "pronoun-4-nothing",
     "sourceNo": 4,
     "word": "nothing",
     "partOfSpeech": "pron.",
@@ -1028,6 +1101,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:5:none",
+    "audioBaseName": "pronoun-5-none",
     "sourceNo": 5,
     "word": "none",
     "partOfSpeech": "pron.",
@@ -1042,6 +1116,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:6:nobody",
+    "audioBaseName": "pronoun-6-nobody",
     "sourceNo": 6,
     "word": "nobody",
     "partOfSpeech": "pron.",
@@ -1056,6 +1131,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:7:ours",
+    "audioBaseName": "pronoun-7-ours",
     "sourceNo": 7,
     "word": "ours",
     "partOfSpeech": "pron.",
@@ -1070,6 +1146,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:8:ourselves",
+    "audioBaseName": "pronoun-8-ourselves",
     "sourceNo": 8,
     "word": "ourselves",
     "partOfSpeech": "pron.",
@@ -1084,6 +1161,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:9:somebody",
+    "audioBaseName": "pronoun-9-somebody",
     "sourceNo": 9,
     "word": "somebody",
     "partOfSpeech": "pron.",
@@ -1098,6 +1176,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:10:someone",
+    "audioBaseName": "pronoun-10-someone",
     "sourceNo": 10,
     "word": "someone",
     "partOfSpeech": "pron.",
@@ -1112,6 +1191,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:11:something",
+    "audioBaseName": "pronoun-11-something",
     "sourceNo": 11,
     "word": "something",
     "partOfSpeech": "pron.",
@@ -1126,6 +1206,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:12:yours",
+    "audioBaseName": "pronoun-12-yours",
     "sourceNo": 12,
     "word": "yours",
     "partOfSpeech": "pron.",
@@ -1140,6 +1221,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:13:yourself",
+    "audioBaseName": "pronoun-13-yourself",
     "sourceNo": 13,
     "word": "yourself",
     "partOfSpeech": "pron.",
@@ -1154,6 +1236,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:14:her",
+    "audioBaseName": "pronoun-14-her",
     "sourceNo": 14,
     "word": "her",
     "partOfSpeech": "pron.",
@@ -1168,6 +1251,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:15:him",
+    "audioBaseName": "pronoun-15-him",
     "sourceNo": 15,
     "word": "him",
     "partOfSpeech": "pron.",
@@ -1182,6 +1266,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:16:its",
+    "audioBaseName": "pronoun-16-its",
     "sourceNo": 16,
     "word": "its",
     "partOfSpeech": "det.",
@@ -1196,6 +1281,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:17:me",
+    "audioBaseName": "pronoun-17-me",
     "sourceNo": 17,
     "word": "me",
     "partOfSpeech": "pron.",
@@ -1210,6 +1296,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:18:our",
+    "audioBaseName": "pronoun-18-our",
     "sourceNo": 18,
     "word": "our",
     "partOfSpeech": "pron.",
@@ -1224,6 +1311,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:19:their",
+    "audioBaseName": "pronoun-19-their",
     "sourceNo": 19,
     "word": "their",
     "partOfSpeech": "det.",
@@ -1238,6 +1326,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:20:them",
+    "audioBaseName": "pronoun-20-them",
     "sourceNo": 20,
     "word": "them",
     "partOfSpeech": "pron.",
@@ -1252,6 +1341,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:21:these",
+    "audioBaseName": "pronoun-21-these",
     "sourceNo": 21,
     "word": "these",
     "partOfSpeech": "det. & pron.",
@@ -1266,6 +1356,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:22:they",
+    "audioBaseName": "pronoun-22-they",
     "sourceNo": 22,
     "word": "they",
     "partOfSpeech": "pron.",
@@ -1280,6 +1371,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:23:those",
+    "audioBaseName": "pronoun-23-those",
     "sourceNo": 23,
     "word": "those",
     "partOfSpeech": "det. & pron.",
@@ -1294,6 +1386,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:24:us",
+    "audioBaseName": "pronoun-24-us",
     "sourceNo": 24,
     "word": "us",
     "partOfSpeech": "pron.",
@@ -1308,6 +1401,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:25:we",
+    "audioBaseName": "pronoun-25-we",
     "sourceNo": 25,
     "word": "we",
     "partOfSpeech": "pron.",
@@ -1322,6 +1416,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:26:whose",
+    "audioBaseName": "pronoun-26-whose",
     "sourceNo": 26,
     "word": "whose",
     "partOfSpeech": "det.&pron.",
@@ -1336,6 +1431,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:27:anything",
+    "audioBaseName": "pronoun-27-anything",
     "sourceNo": 27,
     "word": "anything",
     "partOfSpeech": "pron.",
@@ -1350,6 +1446,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:28:anybody",
+    "audioBaseName": "pronoun-28-anybody",
     "sourceNo": 28,
     "word": "anybody",
     "partOfSpeech": "pron.",
@@ -1364,6 +1461,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:29:anyone",
+    "audioBaseName": "pronoun-29-anyone",
     "sourceNo": 29,
     "word": "anyone",
     "partOfSpeech": "pron.",
@@ -1378,6 +1476,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:30:everybody",
+    "audioBaseName": "pronoun-30-everybody",
     "sourceNo": 30,
     "word": "everybody",
     "partOfSpeech": "pron.",
@@ -1392,6 +1491,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:31:everyone",
+    "audioBaseName": "pronoun-31-everyone",
     "sourceNo": 31,
     "word": "everyone",
     "partOfSpeech": "pron.",
@@ -1406,6 +1506,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:32:everything",
+    "audioBaseName": "pronoun-32-everything",
     "sourceNo": 32,
     "word": "everything",
     "partOfSpeech": "pron.",
@@ -1420,6 +1521,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:33:everywhere",
+    "audioBaseName": "pronoun-33-everywhere",
     "sourceNo": 33,
     "word": "everywhere",
     "partOfSpeech": "adv.&pron.&conj.",
@@ -1434,6 +1536,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:34:herself",
+    "audioBaseName": "pronoun-34-herself",
     "sourceNo": 34,
     "word": "herself",
     "partOfSpeech": "pron.",
@@ -1448,6 +1551,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:35:himself",
+    "audioBaseName": "pronoun-35-himself",
     "sourceNo": 35,
     "word": "himself",
     "partOfSpeech": "pron.",
@@ -1462,6 +1566,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:pronoun:36:myself",
+    "audioBaseName": "pronoun-36-myself",
     "sourceNo": 36,
     "word": "myself",
     "partOfSpeech": "pron.",
@@ -1476,6 +1581,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:1:absolutely",
+    "audioBaseName": "adverb-1-absolutely",
     "sourceNo": 1,
     "word": "absolutely",
     "partOfSpeech": "adv.",
@@ -1490,6 +1596,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:2:afterward-s",
+    "audioBaseName": "adverb-2-afterward-s",
     "sourceNo": 2,
     "word": "afterward(s)",
     "partOfSpeech": "adv.",
@@ -1504,6 +1611,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:3:almost",
+    "audioBaseName": "adverb-3-almost",
     "sourceNo": 3,
     "word": "almost*",
     "partOfSpeech": "adv.",
@@ -1518,6 +1626,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:4:already",
+    "audioBaseName": "adverb-4-already",
     "sourceNo": 4,
     "word": "already",
     "partOfSpeech": "adv.",
@@ -1532,6 +1641,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:5:ahead",
+    "audioBaseName": "adverb-5-ahead",
     "sourceNo": 5,
     "word": "ahead",
     "partOfSpeech": "adv.",
@@ -1546,6 +1656,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:6:completely",
+    "audioBaseName": "adverb-6-completely",
     "sourceNo": 6,
     "word": "completely",
     "partOfSpeech": "adv.",
@@ -1560,6 +1671,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:7:differently",
+    "audioBaseName": "adverb-7-differently",
     "sourceNo": 7,
     "word": "differently",
     "partOfSpeech": "adv.",
@@ -1574,6 +1686,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:8:else",
+    "audioBaseName": "adverb-8-else",
     "sourceNo": 8,
     "word": "else",
     "partOfSpeech": "adv.; adj.",
@@ -1588,6 +1701,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:9:sincerely",
+    "audioBaseName": "adverb-9-sincerely",
     "sourceNo": 9,
     "word": "sincerely",
     "partOfSpeech": "adv.",
@@ -1602,6 +1716,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:10:suddenly",
+    "audioBaseName": "adverb-10-suddenly",
     "sourceNo": 10,
     "word": "suddenly",
     "partOfSpeech": "adv.",
@@ -1616,6 +1731,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:adverb:11:yet",
+    "audioBaseName": "adverb-11-yet",
     "sourceNo": 11,
     "word": "yet",
     "partOfSpeech": "adv.",
@@ -1630,6 +1746,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:1:baker",
+    "audioBaseName": "occupation-1-baker",
     "sourceNo": 1,
     "word": "baker",
     "partOfSpeech": "n.",
@@ -1644,6 +1761,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:2:writer",
+    "audioBaseName": "occupation-2-writer",
     "sourceNo": 2,
     "word": "writer",
     "partOfSpeech": "n.",
@@ -1658,6 +1776,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:3:worker",
+    "audioBaseName": "occupation-3-worker",
     "sourceNo": 3,
     "word": "worker",
     "partOfSpeech": "n.",
@@ -1672,6 +1791,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:4:singer",
+    "audioBaseName": "occupation-4-singer",
     "sourceNo": 4,
     "word": "singer",
     "partOfSpeech": "n.",
@@ -1686,6 +1806,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:5:pilot",
+    "audioBaseName": "occupation-5-pilot",
     "sourceNo": 5,
     "word": "pilot",
     "partOfSpeech": "n.",
@@ -1700,6 +1821,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:6:doctor",
+    "audioBaseName": "occupation-6-doctor",
     "sourceNo": 6,
     "word": "doctor",
     "partOfSpeech": "n.",
@@ -1714,6 +1836,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:7:farmer",
+    "audioBaseName": "occupation-7-farmer",
     "sourceNo": 7,
     "word": "farmer",
     "partOfSpeech": "n.",
@@ -1728,6 +1851,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:8:actor",
+    "audioBaseName": "occupation-8-actor",
     "sourceNo": 8,
     "word": "actor",
     "partOfSpeech": "n.",
@@ -1742,6 +1866,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:9:actress",
+    "audioBaseName": "occupation-9-actress",
     "sourceNo": 9,
     "word": "actress",
     "partOfSpeech": "n.",
@@ -1756,6 +1881,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:10:artist",
+    "audioBaseName": "occupation-10-artist",
     "sourceNo": 10,
     "word": "artist",
     "partOfSpeech": "n.",
@@ -1770,6 +1896,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:11:chef",
+    "audioBaseName": "occupation-11-chef",
     "sourceNo": 11,
     "word": "chef",
     "partOfSpeech": "n.",
@@ -1784,6 +1911,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:12:dentist",
+    "audioBaseName": "occupation-12-dentist",
     "sourceNo": 12,
     "word": "dentist",
     "partOfSpeech": "n.",
@@ -1798,6 +1926,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:13:driver",
+    "audioBaseName": "occupation-13-driver",
     "sourceNo": 13,
     "word": "driver",
     "partOfSpeech": "n.",
@@ -1812,6 +1941,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:14:firefighter",
+    "audioBaseName": "occupation-14-firefighter",
     "sourceNo": 14,
     "word": "firefighter",
     "partOfSpeech": "n.",
@@ -1826,6 +1956,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:15:librarian",
+    "audioBaseName": "occupation-15-librarian",
     "sourceNo": 15,
     "word": "librarian",
     "partOfSpeech": "n.",
@@ -1840,6 +1971,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:16:nurse",
+    "audioBaseName": "occupation-16-nurse",
     "sourceNo": 16,
     "word": "nurse",
     "partOfSpeech": "n.",
@@ -1854,6 +1986,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:17:scientist",
+    "audioBaseName": "occupation-17-scientist",
     "sourceNo": 17,
     "word": "scientist",
     "partOfSpeech": "n.",
@@ -1868,6 +2001,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:occupation:18:dancer",
+    "audioBaseName": "occupation-18-dancer",
     "sourceNo": 18,
     "word": "dancer",
     "partOfSpeech": "n.",
@@ -1882,6 +2016,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:conjunction:1:and",
+    "audioBaseName": "conjunction-1-and",
     "sourceNo": 1,
     "word": "and",
     "partOfSpeech": "conj.",
@@ -1896,6 +2031,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:conjunction:2:as",
+    "audioBaseName": "conjunction-2-as",
     "sourceNo": 2,
     "word": "as",
     "partOfSpeech": "conj.",
@@ -1910,6 +2046,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:conjunction:3:because",
+    "audioBaseName": "conjunction-3-because",
     "sourceNo": 3,
     "word": "because",
     "partOfSpeech": "conj.",
@@ -1924,6 +2061,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:conjunction:4:but",
+    "audioBaseName": "conjunction-4-but",
     "sourceNo": 4,
     "word": "but",
     "partOfSpeech": "conj.",
@@ -1938,6 +2076,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:conjunction:5:if",
+    "audioBaseName": "conjunction-5-if",
     "sourceNo": 5,
     "word": "if",
     "partOfSpeech": "conj.",
@@ -1952,6 +2091,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:conjunction:6:or",
+    "audioBaseName": "conjunction-6-or",
     "sourceNo": 6,
     "word": "or",
     "partOfSpeech": "conj.",
@@ -1966,6 +2106,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:conjunction:7:while",
+    "audioBaseName": "conjunction-7-while",
     "sourceNo": 7,
     "word": "while",
     "partOfSpeech": "conj.",
@@ -1980,6 +2121,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:continents:1:world",
+    "audioBaseName": "continents-1-world",
     "sourceNo": 1,
     "word": "world",
     "partOfSpeech": "n.",
@@ -1994,6 +2136,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:continents:2:australia",
+    "audioBaseName": "continents-2-australia",
     "sourceNo": 2,
     "word": "Australia",
     "partOfSpeech": "n.",
@@ -2008,6 +2151,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:continents:3:africa",
+    "audioBaseName": "continents-3-africa",
     "sourceNo": 3,
     "word": "Africa",
     "partOfSpeech": "n.",
@@ -2022,6 +2166,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:continents:4:asia",
+    "audioBaseName": "continents-4-asia",
     "sourceNo": 4,
     "word": "Asia",
     "partOfSpeech": "n.",
@@ -2036,6 +2181,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:continents:5:asian",
+    "audioBaseName": "continents-5-asian",
     "sourceNo": 5,
     "word": "Asian",
     "partOfSpeech": "adj.",
@@ -2050,6 +2196,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:continents:6:europe",
+    "audioBaseName": "continents-6-europe",
     "sourceNo": 6,
     "word": "Europe",
     "partOfSpeech": "n.",
@@ -2064,6 +2211,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:continents:7:america",
+    "audioBaseName": "continents-7-america",
     "sourceNo": 7,
     "word": "America",
     "partOfSpeech": "n.",
@@ -2078,6 +2226,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:1:france",
+    "audioBaseName": "country-1-france",
     "sourceNo": 1,
     "word": "France",
     "partOfSpeech": "n.",
@@ -2092,6 +2241,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:2:germany",
+    "audioBaseName": "country-2-germany",
     "sourceNo": 2,
     "word": "Germany",
     "partOfSpeech": "n.",
@@ -2106,6 +2256,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:3:japan",
+    "audioBaseName": "country-3-japan",
     "sourceNo": 3,
     "word": "Japan",
     "partOfSpeech": "n.",
@@ -2120,6 +2271,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:4:india",
+    "audioBaseName": "country-4-india",
     "sourceNo": 4,
     "word": "India",
     "partOfSpeech": "n.",
@@ -2134,6 +2286,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:5:uk-united-kingdom",
+    "audioBaseName": "country-5-uk-united-kingdom",
     "sourceNo": 5,
     "word": "UK (United Kingdom)",
     "partOfSpeech": "abbr.",
@@ -2148,6 +2301,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:6:u-s-united-states",
+    "audioBaseName": "country-6-u-s-united-states",
     "sourceNo": 6,
     "word": "U.S.(United States)",
     "partOfSpeech": "abbr.",
@@ -2162,6 +2316,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:7:britain",
+    "audioBaseName": "country-7-britain",
     "sourceNo": 7,
     "word": "Britain",
     "partOfSpeech": "n.",
@@ -2176,6 +2331,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:8:china",
+    "audioBaseName": "country-8-china",
     "sourceNo": 8,
     "word": "China",
     "partOfSpeech": "n.",
@@ -2190,6 +2346,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:9:canada",
+    "audioBaseName": "country-9-canada",
     "sourceNo": 9,
     "word": "Canada",
     "partOfSpeech": "n.",
@@ -2204,6 +2361,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:10:england",
+    "audioBaseName": "country-10-england",
     "sourceNo": 10,
     "word": "England",
     "partOfSpeech": "n.",
@@ -2218,6 +2376,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:11:russia",
+    "audioBaseName": "country-11-russia",
     "sourceNo": 11,
     "word": "Russia",
     "partOfSpeech": "n.",
@@ -2232,6 +2391,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:country:12:country",
+    "audioBaseName": "country-12-country",
     "sourceNo": 12,
     "word": "country",
     "partOfSpeech": "n.",
@@ -2246,6 +2406,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:1:french",
+    "audioBaseName": "people-language-1-french",
     "sourceNo": 1,
     "word": "French",
     "partOfSpeech": "adj.; n.",
@@ -2260,6 +2421,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:2:german",
+    "audioBaseName": "people-language-2-german",
     "sourceNo": 2,
     "word": "German",
     "partOfSpeech": "adj.; n.",
@@ -2274,6 +2436,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:3:indian",
+    "audioBaseName": "people-language-3-indian",
     "sourceNo": 3,
     "word": "Indian",
     "partOfSpeech": "adj.",
@@ -2288,6 +2451,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:4:japanese",
+    "audioBaseName": "people-language-4-japanese",
     "sourceNo": 4,
     "word": "Japanese",
     "partOfSpeech": "n.; adj.",
@@ -2302,6 +2466,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:5:russian",
+    "audioBaseName": "people-language-5-russian",
     "sourceNo": 5,
     "word": "Russian",
     "partOfSpeech": "adj.; n.",
@@ -2316,6 +2481,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:6:american",
+    "audioBaseName": "people-language-6-american",
     "sourceNo": 6,
     "word": "American",
     "partOfSpeech": "n.",
@@ -2330,6 +2496,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:7:australian",
+    "audioBaseName": "people-language-7-australian",
     "sourceNo": 7,
     "word": "Australian",
     "partOfSpeech": "adj.",
@@ -2344,6 +2511,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:8:british",
+    "audioBaseName": "people-language-8-british",
     "sourceNo": 8,
     "word": "British",
     "partOfSpeech": "adj.",
@@ -2358,6 +2526,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:9:chinese",
+    "audioBaseName": "people-language-9-chinese",
     "sourceNo": 9,
     "word": "Chinese",
     "partOfSpeech": "adj.; n.",
@@ -2372,6 +2541,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:10:canadian",
+    "audioBaseName": "people-language-10-canadian",
     "sourceNo": 10,
     "word": "Canadian",
     "partOfSpeech": "adj.",
@@ -2386,6 +2556,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:11:english",
+    "audioBaseName": "people-language-11-english",
     "sourceNo": 11,
     "word": "English",
     "partOfSpeech": "n.& adj.",
@@ -2400,6 +2571,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:people-language:12:african",
+    "audioBaseName": "people-language-12-african",
     "sourceNo": 12,
     "word": "African",
     "partOfSpeech": "adj.",
@@ -2414,6 +2586,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:1:pocket",
+    "audioBaseName": "noun-1-pocket",
     "sourceNo": 1,
     "word": "pocket",
     "partOfSpeech": "n.",
@@ -2428,6 +2601,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:2:place",
+    "audioBaseName": "noun-2-place",
     "sourceNo": 2,
     "word": "place",
     "partOfSpeech": "n.",
@@ -2442,6 +2616,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:3:radio",
+    "audioBaseName": "noun-3-radio",
     "sourceNo": 3,
     "word": "radio",
     "partOfSpeech": "n.",
@@ -2456,6 +2631,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:4:reader",
+    "audioBaseName": "noun-4-reader",
     "sourceNo": 4,
     "word": "reader",
     "partOfSpeech": "n.",
@@ -2470,6 +2646,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:5:reading",
+    "audioBaseName": "noun-5-reading",
     "sourceNo": 5,
     "word": "reading",
     "partOfSpeech": "n.",
@@ -2484,6 +2661,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:6:closet",
+    "audioBaseName": "noun-6-closet",
     "sourceNo": 6,
     "word": "closet",
     "partOfSpeech": "n.",
@@ -2498,6 +2676,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:7:road",
+    "audioBaseName": "noun-7-road",
     "sourceNo": 7,
     "word": "road",
     "partOfSpeech": "n.",
@@ -2512,6 +2691,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:8:roof",
+    "audioBaseName": "noun-8-roof",
     "sourceNo": 8,
     "word": "roof",
     "partOfSpeech": "n.",
@@ -2526,6 +2706,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:9:row",
+    "audioBaseName": "noun-9-row",
     "sourceNo": 9,
     "word": "row",
     "partOfSpeech": "n.",
@@ -2540,6 +2721,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:10:ring",
+    "audioBaseName": "noun-10-ring",
     "sourceNo": 10,
     "word": "ring",
     "partOfSpeech": "v.; n.",
@@ -2554,6 +2736,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:11:set",
+    "audioBaseName": "noun-11-set",
     "sourceNo": 11,
     "word": "set",
     "partOfSpeech": "n.",
@@ -2568,6 +2751,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:12:seat",
+    "audioBaseName": "noun-12-seat",
     "sourceNo": 12,
     "word": "seat",
     "partOfSpeech": "n.; v.",
@@ -2582,6 +2766,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:13:sauce",
+    "audioBaseName": "noun-13-sauce",
     "sourceNo": 13,
     "word": "sauce",
     "partOfSpeech": "n.",
@@ -2596,6 +2781,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:14:salt",
+    "audioBaseName": "noun-14-salt",
     "sourceNo": 14,
     "word": "salt",
     "partOfSpeech": "n.",
@@ -2610,6 +2796,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:15:sheet",
+    "audioBaseName": "noun-15-sheet",
     "sourceNo": 15,
     "word": "sheet",
     "partOfSpeech": "n.",
@@ -2624,6 +2811,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:16:side",
+    "audioBaseName": "noun-16-side",
     "sourceNo": 16,
     "word": "side",
     "partOfSpeech": "n.",
@@ -2638,6 +2826,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:17:sign",
+    "audioBaseName": "noun-17-sign",
     "sourceNo": 17,
     "word": "sign",
     "partOfSpeech": "n.",
@@ -2652,6 +2841,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:18:sport",
+    "audioBaseName": "noun-18-sport",
     "sourceNo": 18,
     "word": "sport",
     "partOfSpeech": "n.",
@@ -2666,6 +2856,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:19:stair",
+    "audioBaseName": "noun-19-stair",
     "sourceNo": 19,
     "word": "stair",
     "partOfSpeech": "n.",
@@ -2680,6 +2871,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:20:stamp",
+    "audioBaseName": "noun-20-stamp",
     "sourceNo": 20,
     "word": "stamp",
     "partOfSpeech": "n.",
@@ -2694,6 +2886,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:21:step",
+    "audioBaseName": "noun-21-step",
     "sourceNo": 21,
     "word": "step",
     "partOfSpeech": "n.",
@@ -2708,6 +2901,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:22:storm",
+    "audioBaseName": "noun-22-storm",
     "sourceNo": 22,
     "word": "storm",
     "partOfSpeech": "n.",
@@ -2722,6 +2916,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:23:swimming",
+    "audioBaseName": "noun-23-swimming",
     "sourceNo": 23,
     "word": "swimming",
     "partOfSpeech": "n.",
@@ -2736,6 +2931,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:24:tail",
+    "audioBaseName": "noun-24-tail",
     "sourceNo": 24,
     "word": "tail",
     "partOfSpeech": "n.",
@@ -2750,6 +2946,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:25:taxi",
+    "audioBaseName": "noun-25-taxi",
     "sourceNo": 25,
     "word": "taxi",
     "partOfSpeech": "n.",
@@ -2764,6 +2961,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:26:shampoo",
+    "audioBaseName": "noun-26-shampoo",
     "sourceNo": 26,
     "word": "shampoo",
     "partOfSpeech": "n.",
@@ -2778,6 +2976,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:27:choice",
+    "audioBaseName": "noun-27-choice",
     "sourceNo": 27,
     "word": "choice",
     "partOfSpeech": "n.",
@@ -2792,6 +2991,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:28:team",
+    "audioBaseName": "noun-28-team",
     "sourceNo": 28,
     "word": "team",
     "partOfSpeech": "n.",
@@ -2806,6 +3006,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:29:telephone",
+    "audioBaseName": "noun-29-telephone",
     "sourceNo": 29,
     "word": "telephone",
     "partOfSpeech": "n.",
@@ -2820,6 +3021,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:30:television",
+    "audioBaseName": "noun-30-television",
     "sourceNo": 30,
     "word": "television",
     "partOfSpeech": "n.",
@@ -2834,6 +3036,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:31:tennis",
+    "audioBaseName": "noun-31-tennis",
     "sourceNo": 31,
     "word": "tennis",
     "partOfSpeech": "n.",
@@ -2848,6 +3051,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:32:toilet",
+    "audioBaseName": "noun-32-toilet",
     "sourceNo": 32,
     "word": "toilet",
     "partOfSpeech": "n.",
@@ -2862,6 +3066,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:33:top",
+    "audioBaseName": "noun-33-top",
     "sourceNo": 33,
     "word": "top",
     "partOfSpeech": "n.",
@@ -2876,6 +3081,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:34:towel",
+    "audioBaseName": "noun-34-towel",
     "sourceNo": 34,
     "word": "towel",
     "partOfSpeech": "n.",
@@ -2890,6 +3096,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:35:town",
+    "audioBaseName": "noun-35-town",
     "sourceNo": 35,
     "word": "town",
     "partOfSpeech": "n.",
@@ -2904,6 +3111,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:36:wave",
+    "audioBaseName": "noun-36-wave",
     "sourceNo": 36,
     "word": "wave",
     "partOfSpeech": "n.",
@@ -2918,6 +3126,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:37:weekend",
+    "audioBaseName": "noun-37-weekend",
     "sourceNo": 37,
     "word": "weekend",
     "partOfSpeech": "n.",
@@ -2932,6 +3141,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:38:bridge",
+    "audioBaseName": "noun-38-bridge",
     "sourceNo": 38,
     "word": "bridge",
     "partOfSpeech": "n.",
@@ -2946,6 +3156,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:39:brush",
+    "audioBaseName": "noun-39-brush",
     "sourceNo": 39,
     "word": "brush",
     "partOfSpeech": "n.",
@@ -2960,6 +3171,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:40:basket",
+    "audioBaseName": "noun-40-basket",
     "sourceNo": 40,
     "word": "basket",
     "partOfSpeech": "n.",
@@ -2974,6 +3186,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:41:bookcase",
+    "audioBaseName": "noun-41-bookcase",
     "sourceNo": 41,
     "word": "bookcase",
     "partOfSpeech": "n.",
@@ -2988,6 +3201,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:42:season",
+    "audioBaseName": "noun-42-season",
     "sourceNo": 42,
     "word": "season",
     "partOfSpeech": "n.",
@@ -3002,6 +3216,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:43:window",
+    "audioBaseName": "noun-43-window",
     "sourceNo": 43,
     "word": "window",
     "partOfSpeech": "n.",
@@ -3016,6 +3231,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:44:airport",
+    "audioBaseName": "noun-44-airport",
     "sourceNo": 44,
     "word": "airport",
     "partOfSpeech": "n.",
@@ -3030,6 +3246,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:45:airplane",
+    "audioBaseName": "noun-45-airplane",
     "sourceNo": 45,
     "word": "airplane",
     "partOfSpeech": "n.",
@@ -3044,6 +3261,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:46:autumn",
+    "audioBaseName": "noun-46-autumn",
     "sourceNo": 46,
     "word": "autumn",
     "partOfSpeech": "n.",
@@ -3058,6 +3276,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:47:calendar",
+    "audioBaseName": "noun-47-calendar",
     "sourceNo": 47,
     "word": "calendar",
     "partOfSpeech": "n.",
@@ -3072,6 +3291,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:48:dish",
+    "audioBaseName": "noun-48-dish",
     "sourceNo": 48,
     "word": "dish",
     "partOfSpeech": "n.",
@@ -3086,6 +3306,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:49:history",
+    "audioBaseName": "noun-49-history",
     "sourceNo": 49,
     "word": "history",
     "partOfSpeech": "n.",
@@ -3100,6 +3321,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:50:hospital",
+    "audioBaseName": "noun-50-hospital",
     "sourceNo": 50,
     "word": "hospital",
     "partOfSpeech": "n.",
@@ -3114,6 +3336,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:51:hour",
+    "audioBaseName": "noun-51-hour",
     "sourceNo": 51,
     "word": "hour",
     "partOfSpeech": "n.",
@@ -3128,6 +3351,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:52:husband",
+    "audioBaseName": "noun-52-husband",
     "sourceNo": 52,
     "word": "husband",
     "partOfSpeech": "n.",
@@ -3142,6 +3366,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:53:hotel",
+    "audioBaseName": "noun-53-hotel",
     "sourceNo": 53,
     "word": "hotel",
     "partOfSpeech": "n.",
@@ -3156,6 +3381,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:54:newspaper",
+    "audioBaseName": "noun-54-newspaper",
     "sourceNo": 54,
     "word": "newspaper",
     "partOfSpeech": "n.",
@@ -3170,6 +3396,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:55:neighbour",
+    "audioBaseName": "noun-55-neighbour",
     "sourceNo": 55,
     "word": "neighbour",
     "partOfSpeech": "n.",
@@ -3184,6 +3411,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:56:net",
+    "audioBaseName": "noun-56-net",
     "sourceNo": 56,
     "word": "net",
     "partOfSpeech": "n.",
@@ -3198,6 +3426,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:57:nest",
+    "audioBaseName": "noun-57-nest",
     "sourceNo": 57,
     "word": "nest",
     "partOfSpeech": "n.",
@@ -3212,6 +3441,7 @@ window.VOCABULARY_DATA = [
   {
     "vocabularySetId": "g6-p1-p2",
     "wordId": "g6-p1-p2:noun:58:noon",
+    "audioBaseName": "noun-58-noon",
     "sourceNo": 58,
     "word": "noon",
     "partOfSpeech": "n.",

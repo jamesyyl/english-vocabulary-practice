@@ -42,6 +42,7 @@ function flattenVocabulary(source) {
       return {
         vocabularySetId: VOCABULARY_SET_ID,
         wordId: createWordId(category, entry),
+        audioBaseName: createAudioBaseName(category, entry),
         sourceNo: entry.no,
         word: entry.word,
         partOfSpeech: entry.part_of_speech,
@@ -55,6 +56,14 @@ function flattenVocabulary(source) {
       };
     });
   });
+}
+
+function createAudioBaseName(category, entry) {
+  return [
+    slugify(category.category_en || "uncategorized"),
+    String(entry.no).trim(),
+    slugify(entry.word)
+  ].join("-");
 }
 
 function createWordId(category, entry) {

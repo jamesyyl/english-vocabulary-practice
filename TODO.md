@@ -82,14 +82,16 @@
 
 ### 0.3.0 發音資源架構
 
-- [ ] 定義靜態音檔命名規則，例如 `audio/<vocabularySetId>/<wordId>.mp3`。
-- [ ] 抽出發音播放層：優先播放 MP3，失敗時 fallback 到 `speechSynthesis`。
-- [ ] 先加入少量試點音檔，確認跨瀏覽器播放與 fallback。
+- [x] 定義靜態音檔命名規則：`audio/<vocabularySetId>/words/<audioBaseName>.mp3` 與 `audio/<vocabularySetId>/sentences/<audioBaseName>.mp3`。
+- [x] 抽出發音播放層：優先播放 MP3，失敗時 fallback 到 `speechSynthesis`。
+- [x] 先加入少量試點音檔，確認跨瀏覽器播放與 fallback。
+- [x] 進入單字頁時自動播放該單字讀音，並保留發音 / 重播按鈕。
+- [x] 在例句標籤列加入小喇叭按鈕，播放該例句。
 
 驗收：
 
-- [ ] 沒有音檔的字仍可用 Web Speech API 發音。
-- [ ] 音檔載入失敗不阻塞練習流程。
+- [x] 沒有音檔的字仍可用 Web Speech API 發音。
+- [x] 音檔載入失敗不阻塞練習流程。
 
 ### 0.4.0 多字庫資料模型設計
 
