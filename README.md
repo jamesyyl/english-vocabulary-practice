@@ -79,7 +79,7 @@ node scripts/generate-vocabulary-js.js
 
 ## TOEIC Reference Vocabulary
 
-The repository keeps a normalized TOEIC reference set for looking up the built-in G6 words. The browser loads only the generated G6-to-TOEIC matches, so the main page remains lightweight.
+The local workspace keeps a normalized TOEIC reference set for looking up the built-in G6 words. The full reference set is rebuilt locally and excluded from Git because the browser only needs the generated G6-to-TOEIC matches.
 
 ```text
 Hugging Face TOEIC source
