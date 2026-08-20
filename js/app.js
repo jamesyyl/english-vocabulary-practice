@@ -26,6 +26,7 @@
   const startReviewBtn = document.getElementById("start-review");
 
   const vocabulary = window.VOCABULARY_DATA || [];
+  const toeicLookup = window.G6_TOEIC_LOOKUP_DATA || { matchesByG6WordId: {} };
   const STORAGE_KEY = "englishVocabularyPracticeProgress:v1";
   const PROGRESS_SCHEMA_VERSION = 2;
   const MISSION_SIZE_OPTIONS = [10, 20, 30];
@@ -538,6 +539,7 @@
         </span>
         <strong>${escapeHtml(current.exampleSentence || "待補充")}</strong>
       </p>
+      ${renderToeicDetails(current)}
     `;
 
     cardEl.querySelectorAll(".sentence-audio-action").forEach(function (button) {
@@ -547,6 +549,39 @@
     });
 
     playPronunciation(current, "word", { auto: true });
+  }
+
+  function renderToeicDetails(word) {
+    const matches = toeicLookup.matchesByG6WordId && toeicLookup.matchesByG6WordId[word.wordId];
+    if (!Array.isArray(matches) || matches.length === 0) {
+      return "";
+    }
+
+    return matches.map(function (entry) {
+      const wordForms = entry.wordForms.map(function (form) {
+        return `<li><strong>${escapeHtml(form.partOfSpeech)}</strong>: ${escapeHtml(form.forms.join(", "))}</li>`;
+      }).join("");
+      const examples = entry.examples.map(function (example) {
+        return `<li><strong>${escapeHtml(example.english)}</strong><span>${escapeHtml(example.chinese)}</span></li>`;
+      }).join("");
+      const tips = entry.examTips.map(function (tip) {
+        return `<li>${escapeHtml(tip)}</li>`;
+      }).join("");
+      return `
+        <details class="toeic-details" open>
+          <summary>TOEIC 完整資料</summary>
+          <div class="toeic-header">
+            <strong>${escapeHtml(entry.word)}</strong>
+            <span>${escapeHtml(entry.categoryZh)} · ${escapeHtml(entry.toeicScoreRange)} · ${"★".repeat(Number(entry.starRating) || 0)}</span>
+          </div>
+          <p class="toeic-meaning">${escapeHtml(entry.chineseMeaning)}</p>
+          <p class="toeic-pos">詞性：${escapeHtml(entry.partOfSpeech.join(", "))}</p>
+          <section><h3>詞形變化</h3><ul>${wordForms}</ul></section>
+          <section><h3>雙語例句</h3><ol class="toeic-examples">${examples}</ol></section>
+          <section><h3>考試重點</h3><ol class="toeic-tips">${tips}</ol></section>
+        </details>
+      `;
+    }).join("");
   }
 
   function showResult() {

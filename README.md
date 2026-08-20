@@ -77,6 +77,24 @@ To update vocabulary data, edit `data/vocabulary.enriched.json`, then run:
 node scripts/generate-vocabulary-js.js
 ```
 
+## TOEIC Reference Vocabulary
+
+The repository keeps a normalized TOEIC reference set for looking up the built-in G6 words. The browser loads only the generated G6-to-TOEIC matches, so the main page remains lightweight.
+
+```text
+Hugging Face TOEIC source
+→ scripts/import-toeic-vocab-tw.js
+→ data/vocabulary-sets/toeic-vocab-tw.json
+→ js/g6-toeic-lookup.js
+→ TOEIC 完整資料 on matching G6 word cards
+```
+
+Refresh the normalized set and G6 lookup file:
+
+```powershell
+node scripts/import-toeic-vocab-tw.js
+```
+
 ## Data Quality Rules
 
 Every generated vocabulary entry must include:

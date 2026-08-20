@@ -562,6 +562,75 @@ h2 {
   outline-offset: 3px;
 }
 
+.toeic-details {
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid color-mix(in oklch, var(--accent) 30%, white);
+  background: color-mix(in oklch, var(--accent-soft) 52%, white);
+}
+
+.toeic-details summary {
+  color: var(--accent-dark);
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.toeic-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+  color: var(--ink);
+}
+
+.toeic-header strong {
+  font-size: 25px;
+}
+
+.toeic-header span,
+.toeic-pos {
+  color: var(--muted);
+}
+
+.toeic-meaning {
+  margin: 10px 0 4px;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.toeic-details section {
+  margin-top: 18px;
+}
+
+.toeic-details h3 {
+  margin: 0 0 8px;
+  color: var(--accent-dark);
+  font-size: 16px;
+}
+
+.toeic-details ul,
+.toeic-details ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.toeic-details li + li {
+  margin-top: 8px;
+}
+
+.toeic-examples span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+.toeic-tips {
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
 .empty-state {
   color: var(--muted);
 }
@@ -739,6 +808,15 @@ h2 {
   .word-card {
     min-height: 340px;
     padding: 24px;
+  }
+
+  .toeic-header {
+    display: block;
+  }
+
+  .toeic-header span {
+    display: block;
+    margin-top: 5px;
   }
 }
 

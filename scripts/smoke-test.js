@@ -271,6 +271,7 @@ function createHarness(initialStorage = {}) {
 
   vm.createContext(sandbox);
   vm.runInContext(readProjectFile("js", "vocabulary.js"), sandbox, { filename: "js/vocabulary.js" });
+  vm.runInContext(readProjectFile("js", "g6-toeic-lookup.js"), sandbox, { filename: "js/g6-toeic-lookup.js" });
   vm.runInContext(readProjectFile("js", "app.js"), sandbox, { filename: "js/app.js" });
 
   return { elements, storage };
@@ -300,6 +301,10 @@ function completeFirstRound() {
   assert(
     harness.elements["word-card"].querySelectorAll(".sentence-audio-action").length === 1,
     "Expected example sentence audio button to render on the word card."
+  );
+  assert(
+    harness.elements["word-card"].innerHTML.includes("TOEIC 完整資料"),
+    "Expected matched G6 words to render TOEIC details."
   );
 
   for (let index = 0; index < 10; index += 1) {
